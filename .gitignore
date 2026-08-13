@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+db.sqlite3
+.django-secret-key
+staticfiles/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/

@@ -1,0 +1,19 @@
+CODEHAVEN · NUEVA SOLICITUD DE COTIZACIÓN
+
+Has recibido una nueva solicitud desde tu página web.
+
+DATOS DEL CLIENTE
+Nombre: {{ cotizacion.nombre }}
+Empresa: {{ cotizacion.empresa|default:"No especificada" }}
+Teléfono: {{ cotizacion.telefono }}
+Correo: {{ cotizacion.email }}
+Preferencia de contacto: {{ cotizacion.get_preferencia_contacto_display }}
+
+PROYECTO
+Tipo: {{ cotizacion.get_tipo_proyecto_display }}
+Presupuesto: {{ cotizacion.presupuesto|default:"Por definir" }}
+
+Descripción:
+{{ cotizacion.descripcion }}
+
+Fecha: {{ cotizacion.fecha_solicitud|date:"d/m/Y H:i" }}

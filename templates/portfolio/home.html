@@ -1,0 +1,495 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="hero-section" aria-labelledby="hero-title">
+    <div class="hero-slider owl-carousel">
+        <div class="hs-item hero-software set-bg" data-setbg="{% static 'img/hero-software.jpg' %}">
+            <div class="hero-overlay"></div>
+            <div class="hs-text">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="eyebrow"><span></span> Desarrollo de software profesional</div>
+                        <h1 id="hero-title">Convierte tu idea en <span>software</span></h1>
+                        <p>Diseño y desarrollo soluciones digitales profesionales adaptadas a las necesidades de tu negocio, emprendimiento o proyecto.</p>
+                        <div class="hero-actions">
+                            <a href="#contacto" class="site-btn">Solicitar cotización</a>
+                            <a href="{{ whatsapp_url }}" class="site-btn site-btn-outline" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Contactar por WhatsApp</a>
+                        </div>
+                        <div class="hero-trust">
+                            <span><i class="fa fa-check" aria-hidden="true"></i> Software a medida</span>
+                            <span><i class="fa fa-shield" aria-hidden="true"></i> Seguridad desde el diseño</span>
+                            <span><i class="fa fa-mobile" aria-hidden="true"></i> Experiencia responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="expertise-strip" aria-labelledby="expertise-title">
+    <div class="container expertise-shell">
+        <header class="expertise-heading">
+            <span>Lo que construimos</span>
+            <h2 id="expertise-title">Especialidades</h2>
+        </header>
+        <div class="expertise-carousel owl-carousel" aria-label="Carrusel de especialidades">
+            <article class="expertise-card">
+                <span class="expertise-number">01</span>
+                <i class="fa fa-code" aria-hidden="true"></i>
+                <div><strong>Software a medida</strong><small>Soluciones creadas para tu operación</small></div>
+            </article>
+            <article class="expertise-card">
+                <span class="expertise-number">02</span>
+                <i class="fa fa-window-maximize" aria-hidden="true"></i>
+                <div><strong>Aplicaciones web</strong><small>Plataformas rápidas, modernas y seguras</small></div>
+            </article>
+            <article class="expertise-card">
+                <span class="expertise-number">03</span>
+                <i class="fa fa-building-o" aria-hidden="true"></i>
+                <div><strong>Sistemas empresariales</strong><small>Control y gestión para equipos</small></div>
+            </article>
+            <article class="expertise-card">
+                <span class="expertise-number">04</span>
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+                <div><strong>Automatización</strong><small>Procesos ágiles con menos trabajo manual</small></div>
+            </article>
+            <article class="expertise-card">
+                <span class="expertise-number">05</span>
+                <i class="fa fa-mobile" aria-hidden="true"></i>
+                <div><strong>Experiencias móviles</strong><small>Interfaces adaptadas a cada dispositivo</small></div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="services-section spad" id="servicios" aria-labelledby="services-title">
+    <div class="container">
+        <header class="section-heading reveal">
+            <div class="section-kicker">Servicios</div>
+            <h2 id="services-title">Soluciones digitales para cada necesidad</h2>
+            <p>Desde una presencia web profesional hasta un sistema completo de gestión: cada solución parte del problema real y se construye para aportar valor.</p>
+        </header>
+        <div class="row service-grid">
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card featured-card">
+                    <div class="service-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
+                    <span class="service-number">01</span>
+                    <h3>Software a medida</h3>
+                    <p>Sistemas creados específicamente según los requerimientos, procesos y objetivos de cada cliente.</p>
+                    <a href="#contacto">Explorar una solución <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fa fa-window-maximize" aria-hidden="true"></i></div>
+                    <span class="service-number">02</span>
+                    <h3>Aplicaciones web</h3>
+                    <p>Plataformas modernas, rápidas, seguras y accesibles desde computadoras, tablets y teléfonos.</p>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
+                    <span class="service-number">03</span>
+                    <h3>Páginas web profesionales</h3>
+                    <p>Sitios corporativos, comerciales, informativos y portafolios con una presencia digital clara y convincente.</p>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fa fa-building-o" aria-hidden="true"></i></div>
+                    <span class="service-number">04</span>
+                    <h3>Sistemas empresariales</h3>
+                    <p>Inventarios, ventas, clientes, recursos humanos, reportes, administración y control de procesos internos.</p>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                    <span class="service-number">05</span>
+                    <h3>Aplicaciones móviles</h3>
+                    <p>Soluciones adaptadas a dispositivos móviles y al contexto de uso específico de cada proyecto.</p>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fa fa-desktop" aria-hidden="true"></i></div>
+                    <span class="service-number">06</span>
+                    <h3>Aplicaciones de escritorio</h3>
+                    <p>Software para procesos administrativos, operativos o empresariales que requieren trabajo local.</p>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fa fa-database" aria-hidden="true"></i></div>
+                    <span class="service-number">07</span>
+                    <h3>Bases de datos</h3>
+                    <p>Diseño e integración de estructuras confiables para almacenar, organizar y consultar información.</p>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+                    <span class="service-number">08</span>
+                    <h3>Automatización</h3>
+                    <p>Digitalización de tareas repetitivas para reducir tiempos, errores y trabajo manual innecesario.</p>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="service-card">
+                    <div class="service-icon"><i class="fa fa-wrench" aria-hidden="true"></i></div>
+                    <span class="service-number">09</span>
+                    <h3>Mantenimiento de sistemas</h3>
+                    <p>Corrección, actualización, optimización y ampliación responsable de aplicaciones existentes.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="technology-section spad" id="tecnologias" aria-labelledby="technology-title">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 reveal">
+                <div class="section-heading text-left compact-heading">
+                    <div class="section-kicker">Tecnología con propósito</div>
+                    <h2 id="technology-title">Herramientas modernas para soluciones sólidas</h2>
+                    <p>La tecnología se selecciona según las necesidades del proyecto: rendimiento, seguridad, facilidad de mantenimiento y capacidad de crecer.</p>
+                </div>
+                <div class="technology-note">
+                    <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                    <p><strong>Primero la solución.</strong> Las herramientas acompañan los objetivos del negocio, no al contrario.</p>
+                </div>
+            </div>
+            <div class="col-lg-7 reveal">
+                <div class="tech-grid" aria-label="Tecnologías utilizadas">
+                    <div class="tech-item"><span>Py</span><strong>Python</strong></div>
+                    <div class="tech-item"><span>Dj</span><strong>Django</strong></div>
+                    <div class="tech-item"><i class="fa fa-html5" aria-hidden="true"></i><strong>HTML5</strong></div>
+                    <div class="tech-item"><i class="fa fa-css3" aria-hidden="true"></i><strong>CSS3</strong></div>
+                    <div class="tech-item"><span>JS</span><strong>JavaScript</strong></div>
+                    <div class="tech-item"><span>B</span><strong>Bootstrap</strong></div>
+                    <div class="tech-item"><i class="fa fa-database" aria-hidden="true"></i><strong>MySQL</strong></div>
+                    <div class="tech-item"><span>Pg</span><strong>PostgreSQL</strong></div>
+                    <div class="tech-item"><i class="fa fa-code-fork" aria-hidden="true"></i><strong>Git</strong></div>
+                    <div class="tech-item"><i class="fa fa-github" aria-hidden="true"></i><strong>GitHub</strong></div>
+                    <div class="tech-item"><span>API</span><strong>REST APIs</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="security-section spad" id="seguridad" aria-labelledby="security-title">
+    <div class="security-glow" aria-hidden="true"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center">
+            <div class="col-lg-5 reveal">
+                <div class="security-visual">
+                    <div class="shield-core"><i class="fa fa-shield" aria-hidden="true"></i></div>
+                    <div class="security-orbit orbit-one"><span>CSRF</span></div>
+                    <div class="security-orbit orbit-two"><span>Roles</span></div>
+                    <div class="security-orbit orbit-three"><span>Sesiones</span></div>
+                </div>
+            </div>
+            <div class="col-lg-7 reveal">
+                <div class="section-heading text-left text-white compact-heading">
+                    <div class="section-kicker">Seguridad</div>
+                    <h2 id="security-title">Desarrollo pensando en la seguridad</h2>
+                    <p>Una buena solución debe cuidar tanto la experiencia como la información. Se aplican controles proporcionales al alcance y al riesgo de cada sistema, sin promesas irreales de invulnerabilidad.</p>
+                </div>
+                <div class="security-list">
+                    <div><i class="fa fa-check-circle" aria-hidden="true"></i><span>Autenticación, roles y permisos</span></div>
+                    <div><i class="fa fa-check-circle" aria-hidden="true"></i><span>Validación de formularios y archivos</span></div>
+                    <div><i class="fa fa-check-circle" aria-hidden="true"></i><span>Control de acceso y sesiones seguras</span></div>
+                    <div><i class="fa fa-check-circle" aria-hidden="true"></i><span>Manejo adecuado de contraseñas</span></div>
+                    <div><i class="fa fa-check-circle" aria-hidden="true"></i><span>Protección ante solicitudes no autorizadas</span></div>
+                    <div><i class="fa fa-check-circle" aria-hidden="true"></i><span>Configuración segura para producción</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="solutions-section spad" id="soluciones" aria-labelledby="solutions-title">
+    <div class="container">
+        <header class="section-heading reveal">
+            <div class="section-kicker">Aplicaciones reales</div>
+            <h2 id="solutions-title">Soluciones para tu forma de trabajar</h2>
+            <p>Estas son algunas posibilidades para imaginar cómo la tecnología puede simplificar, ordenar o potenciar una operación.</p>
+        </header>
+        <div class="row solution-grid">
+            <div class="col-md-6 col-xl-3 reveal">
+                <article class="solution-card">
+                    <div class="solution-top"><i class="fa fa-shopping-bag" aria-hidden="true"></i><span>01</span></div>
+                    <h3>Para negocios</h3>
+                    <ul>
+                        <li>Sistemas de ventas</li>
+                        <li>Inventarios</li>
+                        <li>Gestión de clientes</li>
+                        <li>Reportes y control</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="col-md-6 col-xl-3 reveal">
+                <article class="solution-card">
+                    <div class="solution-top"><i class="fa fa-building" aria-hidden="true"></i><span>02</span></div>
+                    <h3>Para empresas</h3>
+                    <ul>
+                        <li>Sistemas internos</li>
+                        <li>Gestión documental</li>
+                        <li>Recursos Humanos</li>
+                        <li>Dashboards y automatización</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="col-md-6 col-xl-3 reveal">
+                <article class="solution-card">
+                    <div class="solution-top"><i class="fa fa-rocket" aria-hidden="true"></i><span>03</span></div>
+                    <h3>Para emprendimientos</h3>
+                    <ul>
+                        <li>Páginas web</li>
+                        <li>Catálogos digitales</li>
+                        <li>Sistemas personalizados</li>
+                        <li>Plataformas de servicios</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="col-md-6 col-xl-3 reveal">
+                <article class="solution-card">
+                    <div class="solution-top"><i class="fa fa-briefcase" aria-hidden="true"></i><span>04</span></div>
+                    <h3>Para profesionales</h3>
+                    <ul>
+                        <li>Portafolios</li>
+                        <li>Sistemas de citas</li>
+                        <li>Gestión de clientes</li>
+                        <li>Sitios profesionales</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="process-section spad" id="proceso" aria-labelledby="process-title">
+    <div class="container">
+        <header class="section-heading reveal">
+            <div class="section-kicker">Proceso claro</div>
+            <h2 id="process-title">¿Cómo desarrollamos tu proyecto?</h2>
+            <p>Un recorrido organizado para comprender la necesidad, tomar buenas decisiones y construir una solución que funcione.</p>
+        </header>
+        <ol class="process-timeline">
+            <li class="reveal"><span>01</span><div><h3>Analizamos tu necesidad</h3><p>Conocemos el problema, idea o proceso que necesitas digitalizar.</p></div></li>
+            <li class="reveal"><span>02</span><div><h3>Definimos la solución</h3><p>Establecemos funcionalidades, módulos, alcance y prioridades.</p></div></li>
+            <li class="reveal"><span>03</span><div><h3>Diseñamos</h3><p>Estructuramos una interfaz profesional, clara y fácil de utilizar.</p></div></li>
+            <li class="reveal"><span>04</span><div><h3>Desarrollamos</h3><p>Implementamos la solución con tecnologías adecuadas al proyecto.</p></div></li>
+            <li class="reveal"><span>05</span><div><h3>Realizamos pruebas</h3><p>Comprobamos funciones, validaciones y comportamiento del sistema.</p></div></li>
+            <li class="reveal"><span>06</span><div><h3>Implementamos</h3><p>Preparamos la solución para su utilización en el entorno definido.</p></div></li>
+            <li class="reveal"><span>07</span><div><h3>Soporte y mejoras</h3><p>El sistema puede evolucionar con correcciones y nuevas funcionalidades.</p></div></li>
+        </ol>
+    </div>
+</section>
+
+<section class="projects-section spad" id="proyectos" aria-labelledby="projects-title">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 reveal">
+                <div class="section-heading text-left compact-heading">
+                    <div class="section-kicker">Portafolio</div>
+                    <h2 id="projects-title">Proyectos y casos de trabajo</h2>
+                    <p>Este espacio está preparado para publicar únicamente proyectos reales, con su descripción, tipo de solución, tecnologías y resultados cuando la información esté disponible.</p>
+                    <a href="#contacto" class="text-link">Cuéntame el proyecto que necesitas <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-7 reveal">
+                <div class="portfolio-placeholder">
+                    <div class="portfolio-window">
+                        <div class="window-bar"><span></span><span></span><span></span></div>
+                        <div class="window-content">
+                            <div class="project-symbol"><i class="fa fa-folder-open-o" aria-hidden="true"></i></div>
+                            <div>
+                                <span class="availability-label">Sección preparada</span>
+                                <h3>Próximamente, casos documentados</h3>
+                                <p>No se muestran proyectos ficticios. Aquí se incorporarán trabajos verificables con la autorización y los datos necesarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reasons-section spad" aria-labelledby="reasons-title">
+    <div class="container">
+        <header class="section-heading reveal">
+            <div class="section-kicker">El estándar CODEHAVEN</div>
+            <h2 id="reasons-title">¿Por qué elegir CODEHAVEN?</h2>
+        </header>
+        <div class="reasons-grid">
+            <article class="reason-item reveal"><i class="fa fa-sliders" aria-hidden="true"></i><div><h3>Desarrollo personalizado</h3><p>Cada proyecto responde a necesidades reales, no a una solución genérica.</p></div></article>
+            <article class="reason-item reveal"><i class="fa fa-object-group" aria-hidden="true"></i><div><h3>Diseño profesional</h3><p>Interfaces modernas, organizadas y fáciles de utilizar.</p></div></article>
+            <article class="reason-item reveal"><i class="fa fa-shield" aria-hidden="true"></i><div><h3>Seguridad</h3><p>Implementación responsable siguiendo buenas prácticas de desarrollo.</p></div></article>
+            <article class="reason-item reveal"><i class="fa fa-line-chart" aria-hidden="true"></i><div><h3>Escalabilidad</h3><p>Estructuras preparadas para evolucionar cuando el proyecto lo requiera.</p></div></article>
+            <article class="reason-item reveal"><i class="fa fa-mobile" aria-hidden="true"></i><div><h3>Responsive</h3><p>Aplicaciones preparadas para diferentes dispositivos cuando corresponde.</p></div></article>
+            <article class="reason-item reveal"><i class="fa fa-life-ring" aria-hidden="true"></i><div><h3>Soporte</h3><p>Posibilidad de mantenimiento, correcciones y futuras mejoras.</p></div></article>
+        </div>
+    </div>
+</section>
+
+<section class="idea-cta" aria-labelledby="idea-title">
+    <div class="container">
+        <div class="idea-cta-inner reveal">
+            <div>
+                <span class="section-kicker">Tu idea puede empezar aquí</span>
+                <h2 id="idea-title">¿Tienes una idea? Podemos convertirla en software.</h2>
+                <p>Si necesitas digitalizar un proceso, crear una aplicación o implementar un sistema, analicemos la necesidad y planteemos una solución.</p>
+            </div>
+            <a href="#contacto" class="site-btn">Cuéntame tu proyecto</a>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section spad" id="contacto" aria-labelledby="contact-title">
+    <div class="container">
+        <header class="quote-heading reveal">
+            <div>
+                <div class="section-kicker">Tu próximo proyecto empieza aquí</div>
+                <h2 id="contact-title">¿Tienes una idea? <span>Hagámosla realidad.</span></h2>
+            </div>
+            <p>Cuéntame qué necesitas y recibe información para desarrollar una solución digital adaptada a tu proyecto, emprendimiento o negocio.</p>
+        </header>
+        <div class="quote-trust-strip reveal" aria-label="Compromisos del servicio">
+            <span><i class="fa fa-code" aria-hidden="true"></i> Software a medida</span>
+            <span><i class="fa fa-comments-o" aria-hidden="true"></i> Atención personalizada</span>
+            <span><i class="fa fa-shield" aria-hidden="true"></i> Buenas prácticas de seguridad</span>
+            <span><i class="fa fa-rocket" aria-hidden="true"></i> Soluciones modernas</span>
+        </div>
+        <div class="row quote-layout">
+            <div class="col-lg-5 reveal">
+                <div class="contact-copy">
+                    <span class="quote-step-label">Antes de empezar</span>
+                    <h3>Una conversación clara para construir la solución correcta.</h3>
+                    <p>No necesitas tener todos los detalles definidos. Comparte el problema, la idea o el proceso que deseas mejorar y podremos analizar el siguiente paso.</p>
+                    <div class="quote-advantages">
+                        <article>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <div><h4>Análisis de tu necesidad</h4><p>La propuesta parte del objetivo real de tu proyecto.</p></div>
+                        </article>
+                        <article>
+                            <i class="fa fa-sliders" aria-hidden="true"></i>
+                            <div><h4>Solución personalizada</h4><p>Funcionalidades y alcance adaptados a cada caso.</p></div>
+                        </article>
+                        <article>
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <div><h4>Información protegida</h4><p>Tus datos se utilizan únicamente para responder a la solicitud.</p></div>
+                        </article>
+                    </div>
+                    <div class="direct-contact">
+                        <span>¿Prefieres conversar directamente?</span>
+                        <a href="tel:+593969048598"><i class="fa fa-phone" aria-hidden="true"></i> 0969048598</a>
+                        <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Contactar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 reveal">
+                <div class="quote-form-card">
+                    {% if form.non_field_errors %}
+                        <div class="form-alert error-alert" role="alert">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                            <div>{{ form.non_field_errors }}</div>
+                        </div>
+                    {% endif %}
+
+                    <div class="form-card-header">
+                        <div class="form-card-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></div>
+                        <div><span>Solicitud de proyecto</span><h3>Cuéntame qué necesitas</h3></div>
+                    </div>
+
+                    <form method="post" action="{% url 'solicitar_contacto' %}" class="quote-form" id="quote-form">
+                        {% csrf_token %}
+                        {{ form.started_at }}
+                        <div class="honeypot" aria-hidden="true">{{ form.website }}</div>
+                        <div class="row">
+                            <div class="col-12"><h4 class="form-section-title"><span>01</span> Información del cliente</h4></div>
+                            <div class="col-md-6 form-group{% if form.nombre.errors %} field-has-errors{% endif %}">
+                                <label for="{{ form.nombre.id_for_label }}">Nombre completo <span>*</span></label>
+                                {{ form.nombre }}
+                                {% for error in form.nombre.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                            </div>
+                            <div class="col-md-6 form-group{% if form.empresa.errors %} field-has-errors{% endif %}">
+                                <label for="{{ form.empresa.id_for_label }}">Empresa o negocio <small>opcional</small></label>
+                                {{ form.empresa }}
+                                {% for error in form.empresa.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                            </div>
+                            <div class="col-md-6 form-group{% if form.telefono.errors %} field-has-errors{% endif %}">
+                                <label for="{{ form.telefono.id_for_label }}">Teléfono / WhatsApp <span>*</span></label>
+                                {{ form.telefono }}
+                                {% for error in form.telefono.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                            </div>
+                            <div class="col-md-6 form-group{% if form.email.errors %} field-has-errors{% endif %}">
+                                <label for="{{ form.email.id_for_label }}">Correo electrónico <span>*</span></label>
+                                {{ form.email }}
+                                {% for error in form.email.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                            </div>
+                            <div class="col-12"><h4 class="form-section-title project-form-title"><span>02</span> Información del proyecto</h4></div>
+                            <div class="col-md-7 form-group{% if form.tipo_proyecto.errors %} field-has-errors{% endif %}">
+                                <label for="{{ form.tipo_proyecto.id_for_label }}">¿Qué necesitas? <span>*</span></label>
+                                {{ form.tipo_proyecto }}
+                                {% for error in form.tipo_proyecto.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                            </div>
+                            <div class="col-md-5 form-group{% if form.presupuesto.errors %} field-has-errors{% endif %}">
+                                <label for="{{ form.presupuesto.id_for_label }}">Presupuesto aproximado <small>opcional</small></label>
+                                {{ form.presupuesto }}
+                                {% for error in form.presupuesto.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                            </div>
+                            <div class="col-12 form-group{% if form.descripcion.errors %} field-has-errors{% endif %}">
+                                <label for="{{ form.descripcion.id_for_label }}">Cuéntame sobre tu proyecto <span>*</span></label>
+                                {{ form.descripcion }}
+                                {% for error in form.descripcion.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                            </div>
+                            <div class="col-12 form-group preference-group{% if form.preferencia_contacto.errors %} field-has-errors{% endif %}">
+                                <fieldset>
+                                    <legend>¿Cómo prefieres que te contacte?</legend>
+                                    <div class="preference-options">
+                                        {% for option in form.preferencia_contacto %}<div>{{ option }}</div>{% endfor %}
+                                    </div>
+                                </fieldset>
+                                {% for error in form.preferencia_contacto.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+                            </div>
+                            <div class="col-12 form-submit-row">
+                                <div class="submit-assurance"><i class="fa fa-lock" aria-hidden="true"></i><p>Tus datos serán utilizados únicamente para responder a tu solicitud.</p></div>
+                                <button type="submit" class="site-btn quote-submit"><span>Solicitar mi cotización</span> <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if cotizacion_confirmada %}
+<div class="success-modal is-visible" data-success-modal role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <div class="success-modal-backdrop" data-close-success></div>
+    <div class="success-modal-card">
+        <button type="button" class="success-modal-close" data-close-success aria-label="Cerrar confirmación"><i class="fa fa-times" aria-hidden="true"></i></button>
+        <div class="success-check"><i class="fa fa-check" aria-hidden="true"></i></div>
+        <span class="success-kicker">Cotización registrada correctamente</span>
+        <h2 id="success-title">¡Solicitud recibida!</h2>
+        <p>Gracias por contarme sobre tu proyecto. Tu solicitud fue registrada correctamente y me pondré en contacto contigo mediante el medio seleccionado.</p>
+        <div class="success-summary">
+            <span><small>Cliente</small>{{ cotizacion_confirmada.nombre }}</span>
+            <span><small>Proyecto</small>{{ cotizacion_confirmada.proyecto }}</span>
+        </div>
+        <div class="success-fast-contact">
+            <div><strong>¿Quieres una respuesta más rápida?</strong><small>Escríbeme directamente y sabré qué solicitud enviaste.</small></div>
+            <a href="{{ cotizacion_confirmada.whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="site-btn whatsapp-success"><i class="fa fa-whatsapp" aria-hidden="true"></i> Hablar por WhatsApp</a>
+        </div>
+        <a href="#inicio" class="success-home-link" data-close-success>Volver al inicio</a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

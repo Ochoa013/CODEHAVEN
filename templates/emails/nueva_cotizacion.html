@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Nueva solicitud de cotización</title></head>
+<body style="margin:0;background:#f3f5f7;font-family:Arial,sans-serif;color:#17191e;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f3f5f7;padding:30px 12px;">
+        <tr><td align="center">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e0e4e8;">
+                <tr>
+                    <td style="background:#101114;padding:30px 34px;border-bottom:4px solid #ffb320;">
+                        <div style="color:#ffb320;font-size:12px;font-weight:bold;letter-spacing:2px;">CODEHAVEN · NUEVA OPORTUNIDAD</div>
+                        <h1 style="margin:10px 0 0;color:#ffffff;font-size:27px;line-height:1.2;">Solicitud de cotización</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:30px 34px;">
+                        <p style="margin:0 0 26px;color:#5f6874;font-size:15px;line-height:1.6;">Has recibido una nueva solicitud desde tu página web profesional.</p>
+
+                        <h2 style="margin:0 0 14px;color:#9a6800;font-size:12px;letter-spacing:1.5px;">DATOS DEL CLIENTE</h2>
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f6f7f9;border-radius:10px;padding:8px 18px;margin-bottom:28px;">
+                            <tr><td style="padding:9px 0;color:#68717d;width:42%;">Nombre</td><td style="padding:9px 0;font-weight:bold;">{{ cotizacion.nombre }}</td></tr>
+                            <tr><td style="padding:9px 0;color:#68717d;">Empresa</td><td style="padding:9px 0;">{{ cotizacion.empresa|default:"No especificada" }}</td></tr>
+                            <tr><td style="padding:9px 0;color:#68717d;">Teléfono</td><td style="padding:9px 0;"><a href="tel:{{ cotizacion.telefono }}" style="color:#17191e;">{{ cotizacion.telefono }}</a></td></tr>
+                            <tr><td style="padding:9px 0;color:#68717d;">Correo</td><td style="padding:9px 0;"><a href="mailto:{{ cotizacion.email }}" style="color:#9a6800;">{{ cotizacion.email }}</a></td></tr>
+                            <tr><td style="padding:9px 0;color:#68717d;">Contacto preferido</td><td style="padding:9px 0;">{{ cotizacion.get_preferencia_contacto_display }}</td></tr>
+                        </table>
+
+                        <h2 style="margin:0 0 14px;color:#9a6800;font-size:12px;letter-spacing:1.5px;">PROYECTO</h2>
+                        <p style="margin:0 0 8px;"><strong>Tipo:</strong> {{ cotizacion.get_tipo_proyecto_display }}</p>
+                        <p style="margin:0 0 20px;"><strong>Presupuesto:</strong> {{ cotizacion.presupuesto|default:"Por definir" }}</p>
+                        <div style="padding:20px;background:#101114;color:#e6e9ed;border-left:4px solid #ffb320;border-radius:8px;line-height:1.7;">{{ cotizacion.descripcion|linebreaksbr }}</div>
+                        <p style="margin:24px 0 0;color:#858d97;font-size:12px;">Recibida el {{ cotizacion.fecha_solicitud|date:"d/m/Y" }} a las {{ cotizacion.fecha_solicitud|date:"H:i" }}.</p>
+                    </td>
+                </tr>
+            </table>
+        </td></tr>
+    </table>
+</body>
+</html>

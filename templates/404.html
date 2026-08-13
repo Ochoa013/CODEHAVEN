@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Página no encontrada | CODEHAVEN{% endblock %}
+{% block description %}La página solicitada no está disponible. Regresa al sitio de servicios de desarrollo de software.{% endblock %}
+
+{% block content %}
+<section class="error-page">
+    <div class="error-grid" aria-hidden="true"></div>
+    <div class="container">
+        <div class="error-content">
+            <span class="error-code">404</span>
+            <div class="section-kicker">Ruta no disponible</div>
+            <h1>Página no encontrada</h1>
+            <p>La página que estás buscando no está disponible.</p>
+            <a class="site-btn" href="{% url 'home' %}">Volver al inicio</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
