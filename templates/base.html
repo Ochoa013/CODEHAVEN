@@ -14,11 +14,11 @@
     <meta property="og:title" content="CODEHAVEN | Desarrollo de Software y Soluciones Digitales">
     <meta property="og:description" content="Software a medida, aplicaciones y soluciones digitales pensadas para las necesidades reales de tu proyecto o negocio.">
     <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
-    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/codehaven-logo.png' %}">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/hero-software.jpg' %}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Desarrollo de Software y Aplicaciones">
     <meta name="twitter:description" content="Soluciones digitales personalizadas para negocios, empresas, emprendimientos y profesionales.">
-    <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/codehaven-logo.png' %}">
+    <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/hero-software.jpg' %}">
     <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     <link rel="icon" type="image/png" href="{% static 'img/favicon-portfolio.png' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -38,9 +38,7 @@
     <header class="header-section" id="inicio">
         <div class="container header-inner">
             <a class="site-logo codehaven-brand" href="{% url 'home' %}" aria-label="CODEHAVEN — Inicio">
-                <span class="codehaven-logo-window" aria-hidden="true">
-                    <img src="{% static 'img/codehaven-logo.png' %}" alt="" width="1536" height="1024">
-                </span>
+                <span class="codehaven-wordmark">CODEHAVEN</span>
             </a>
 
             <button class="nav-switch" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">

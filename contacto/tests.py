@@ -38,6 +38,8 @@ class SitioTests(TestCase):
         self.assertContains(response, "Convierte tu idea en")
         self.assertContains(response, "Solicitar cotización")
         self.assertContains(response, "CODEHAVEN")
+        self.assertContains(response, "codehaven-wordmark")
+        self.assertNotContains(response, "codehaven-logo.png")
         self.assertContains(response, "Carrusel de especialidades")
         self.assertNotContains(response, 'id="sobre-mi"')
         self.assertContains(response, "csrfmiddlewaretoken")
