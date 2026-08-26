@@ -39,24 +39,45 @@ def load_secret_key():
 
 SECRET_KEY = load_secret_key()
 
+default_allowed_hosts = [
+    "laburoya.store",
+    "www.laburoya.store",
+    "codehaven-24lo.onrender.com",
+    "localhost",
+    "127.0.0.1",
+    "[::1]",
+]
 hosts_from_environment = [
     host.strip()
     for host in os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
     if host.strip()
 ]
-ALLOWED_HOSTS = hosts_from_environment or (
-    ["127.0.0.1", "localhost", "[::1]"] if DEBUG else []
-)
+render_external_hostname = os.getenv("RENDER_EXTERNAL_HOSTNAME", "").strip()
+if render_external_hostname:
+    hosts_from_environment.append(render_external_hostname)
+
+ALLOWED_HOSTS = list(dict.fromkeys(default_allowed_hosts + hosts_from_environment))
 if not DEBUG and not ALLOWED_HOSTS:
     raise ImproperlyConfigured(
         "Define DJANGO_ALLOWED_HOSTS con los dominios autorizados para producción."
     )
 
-CSRF_TRUSTED_ORIGINS = [
+default_csrf_trusted_origins = [
+    "https://laburoya.store",
+    "https://www.laburoya.store",
+    "https://codehaven-24lo.onrender.com",
+]
+csrf_origins_from_environment = [
     origin.strip()
     for origin in os.getenv("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",")
     if origin.strip()
 ]
+if render_external_hostname:
+    csrf_origins_from_environment.append(f"https://{render_external_hostname}")
+
+CSRF_TRUSTED_ORIGINS = list(
+    dict.fromkeys(default_csrf_trusted_origins + csrf_origins_from_environment)
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
