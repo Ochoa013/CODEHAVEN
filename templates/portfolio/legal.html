@@ -42,8 +42,8 @@
             <h1 id="legal-hero-title">Respaldo legal para tomar decisiones con <span>claridad.</span></h1>
             <p>Analizamos tu situación, explicamos tus alternativas en lenguaje sencillo y definimos contigo los próximos pasos para proteger tus intereses.</p>
             <div class="legal-hero-actions">
-                <a class="legal-btn" href="#contacto-legal">Solicitar una consulta</a>
-                <a class="legal-btn legal-btn-outline" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp</a>
+                <a class="legal-btn" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Consultar por WhatsApp</a>
+                <a class="legal-btn legal-btn-outline" href="#servicios-legales">Ver servicios legales</a>
             </div>
             <div class="legal-hero-points" aria-label="Características del servicio">
                 <span><i class="fa fa-lock" aria-hidden="true"></i> Atención confidencial</span>
@@ -160,16 +160,22 @@
     <div class="container">
         <div class="legal-contact-card reveal">
             <div>
-                <span class="legal-mini-title">Primer paso</span>
-                <h2 id="legal-contact-title">Cuéntanos brevemente qué necesitas resolver.</h2>
-                <p>Escríbenos por WhatsApp para solicitar una consulta. No incluyas contraseñas, datos bancarios ni documentos sensibles en el primer mensaje.</p>
+                <span class="legal-mini-title">Contacto directo y confidencial</span>
+                <h2 id="legal-contact-title">Cuéntanos tu situación por WhatsApp.</h2>
+                <p>No necesitas conocer términos jurídicos. Describe lo ocurrido con tus propias palabras y te ayudaremos a identificar el siguiente paso.</p>
+                <div class="legal-contact-guidance" aria-label="Información útil para la consulta legal">
+                    <span><i class="fa fa-check" aria-hidden="true"></i> Qué ocurrió y cuándo</span>
+                    <span><i class="fa fa-check" aria-hidden="true"></i> Qué documento o aviso recibiste</span>
+                    <span><i class="fa fa-check" aria-hidden="true"></i> Qué resultado deseas obtener</span>
+                </div>
             </div>
             <div class="legal-contact-action">
-                <a class="legal-btn legal-btn-whatsapp" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Solicitar consulta</a>
-                <small><i class="fa fa-clock-o" aria-hidden="true"></i> La disponibilidad se confirma al contactar.</small>
+                <div class="legal-contact-whatsapp-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></div>
+                <a class="legal-btn legal-btn-whatsapp" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Iniciar consulta</a>
+                <small><i class="fa fa-clock-o" aria-hidden="true"></i> La disponibilidad se coordina al conversar.</small>
             </div>
         </div>
-        <p class="legal-disclaimer"><i class="fa fa-info-circle" aria-hidden="true"></i> La información de esta página es general y no sustituye el análisis profesional de un caso concreto. El envío de un mensaje no crea por sí solo una relación profesional.</p>
+        <p class="legal-disclaimer"><i class="fa fa-info-circle" aria-hidden="true"></i> No envíes contraseñas, información bancaria ni documentos sensibles en el primer mensaje. La información de esta página es general y no sustituye el análisis profesional de un caso concreto.</p>
     </div>
 </section>
 {% endblock %}

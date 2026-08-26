@@ -4366,3 +4366,290 @@ body.modal-open {
         width: 100%;
     }
 }
+
+/* Contacto exclusivo por WhatsApp: desarrollo de software */
+.whatsapp-contact-shell {
+    display: grid;
+    margin-top: 34px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 22px;
+    box-shadow: 0 30px 75px rgba(0, 0, 0, 0.22);
+    grid-template-columns: minmax(0, 1.2fr) minmax(350px, 0.8fr);
+}
+
+.whatsapp-contact-copy {
+    padding: clamp(38px, 5vw, 62px);
+}
+
+.whatsapp-contact-copy > h3 {
+    max-width: 650px;
+    margin: 14px 0 17px;
+    color: var(--paper);
+    font-size: clamp(31px, 3.6vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -1px;
+}
+
+.whatsapp-contact-copy > p {
+    max-width: 690px;
+    margin: 0;
+    color: #b2b8c1;
+    font-size: 15px;
+}
+
+.whatsapp-brief-grid {
+    display: grid;
+    margin-top: 34px;
+    gap: 12px;
+}
+
+.whatsapp-brief-grid article {
+    display: flex;
+    min-height: 91px;
+    padding: 20px 22px;
+    align-items: center;
+    gap: 18px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 13px;
+}
+
+.whatsapp-brief-grid article:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 179, 32, 0.35);
+    transform: translateX(4px);
+}
+
+.whatsapp-brief-grid article > span {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    place-items: center;
+    color: var(--ink);
+    background: var(--amber);
+    border-radius: 50%;
+    font-family: "Futura Local", "Segoe UI", sans-serif;
+    font-size: 12px;
+    box-shadow: 0 8px 20px rgba(255, 179, 32, 0.18);
+}
+
+.whatsapp-brief-grid h4 {
+    margin: 0 0 4px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.whatsapp-brief-grid p {
+    margin: 0;
+    color: #a7aeb8;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.whatsapp-action-card {
+    position: relative;
+    display: flex;
+    padding: clamp(38px, 5vw, 58px);
+    overflow: hidden;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 85% 12%, rgba(72, 222, 130, 0.18), transparent 26%),
+        linear-gradient(145deg, #162d22, #102219);
+    border-left: 1px solid rgba(73, 210, 126, 0.22);
+}
+
+.whatsapp-action-card::after {
+    position: absolute;
+    right: -80px;
+    bottom: -95px;
+    width: 250px;
+    height: 250px;
+    content: "";
+    border: 1px solid rgba(73, 210, 126, 0.15);
+    border-radius: 50%;
+}
+
+.whatsapp-action-icon {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 25px;
+    place-items: center;
+    color: #fff;
+    background: #1fa855;
+    border-radius: 20px;
+    box-shadow: 0 16px 35px rgba(6, 57, 26, 0.35);
+    font-size: 34px;
+}
+
+.whatsapp-action-card > span {
+    color: #72dda0;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.whatsapp-action-card > h3 {
+    margin: 11px 0 15px;
+    color: #fff;
+    font-size: 34px;
+    line-height: 1.1;
+}
+
+.whatsapp-action-card > p {
+    margin: 0;
+    color: #b7c7bd;
+    font-size: 14px;
+}
+
+.whatsapp-primary-btn {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin-top: 28px;
+    color: #fff;
+    background: #1fa855;
+    border-color: #1fa855;
+    box-shadow: 0 14px 32px rgba(5, 62, 28, 0.3);
+    text-align: center;
+}
+
+.whatsapp-primary-btn:hover {
+    color: #fff;
+    background: #27b961;
+    border-color: #27b961;
+}
+
+.whatsapp-contact-detail {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    margin-top: 21px;
+    padding-top: 19px;
+    align-items: center;
+    gap: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.whatsapp-contact-detail > i {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    color: #72dda0;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+}
+
+.whatsapp-contact-detail div {
+    display: flex;
+    flex-direction: column;
+}
+
+.whatsapp-contact-detail strong {
+    color: #fff;
+    font-size: 12px;
+}
+
+.whatsapp-contact-detail small {
+    margin-top: 3px;
+    color: #9db0a4;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.whatsapp-privacy-note {
+    position: relative;
+    z-index: 2;
+    margin-top: 18px;
+    color: #8fa297;
+    font-size: 10px;
+}
+
+.whatsapp-privacy-note i {
+    margin-right: 5px;
+    color: #72dda0;
+}
+
+/* Claridad del contacto legal por WhatsApp */
+.legal-contact-guidance {
+    display: grid;
+    margin-top: 24px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.legal-contact-guidance span {
+    display: flex;
+    min-height: 58px;
+    padding: 12px 14px;
+    align-items: center;
+    gap: 9px;
+    color: #f2e8ea;
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 10px;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.legal-contact-guidance i {
+    color: #e3c995;
+}
+
+.legal-contact-whatsapp-icon {
+    display: grid;
+    width: 72px;
+    height: 72px;
+    place-items: center;
+    color: #fff;
+    background: rgba(31, 168, 85, 0.18);
+    border: 1px solid rgba(64, 205, 119, 0.3);
+    border-radius: 50%;
+    font-size: 34px;
+}
+
+@media (max-width: 991px) {
+    .whatsapp-contact-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .whatsapp-action-card {
+        border-top: 1px solid rgba(73, 210, 126, 0.22);
+        border-left: 0;
+    }
+
+    .legal-contact-guidance {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .whatsapp-contact-shell {
+        border-radius: 16px;
+    }
+
+    .whatsapp-contact-copy,
+    .whatsapp-action-card {
+        padding: 34px 24px;
+    }
+
+    .whatsapp-brief-grid article {
+        padding: 18px 16px;
+        align-items: flex-start;
+    }
+
+    .whatsapp-action-card > h3 {
+        font-size: 30px;
+    }
+}

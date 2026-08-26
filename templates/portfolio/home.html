@@ -356,154 +356,52 @@
     <div class="container">
         <header class="quote-heading reveal">
             <div>
-                <div class="section-kicker">Tu próximo proyecto empieza aquí</div>
-                <h2 id="contact-title">¿Tienes una idea? <span>Hagámosla realidad.</span></h2>
+                <div class="section-kicker">Contacto directo por WhatsApp</div>
+                <h2 id="contact-title">Explícame el reto. <span>Diseñemos la solución.</span></h2>
             </div>
-            <p>Cuéntame qué necesitas y recibe información para desarrollar una solución digital adaptada a tu proyecto, emprendimiento o negocio.</p>
+            <p>Sin formularios ni pasos innecesarios. Inicia una conversación y cuéntame qué proceso, tarea o problema deseas resolver con tecnología.</p>
         </header>
         <div class="quote-trust-strip reveal" aria-label="Compromisos del servicio">
-            <span><i class="fa fa-code" aria-hidden="true"></i> Software a medida</span>
-            <span><i class="fa fa-comments-o" aria-hidden="true"></i> Atención personalizada</span>
-            <span><i class="fa fa-shield" aria-hidden="true"></i> Buenas prácticas de seguridad</span>
-            <span><i class="fa fa-rocket" aria-hidden="true"></i> Soluciones modernas</span>
+            <span><i class="fa fa-whatsapp" aria-hidden="true"></i> Un solo canal de contacto</span>
+            <span><i class="fa fa-comments-o" aria-hidden="true"></i> Conversación directa</span>
+            <span><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Orientación inicial clara</span>
+            <span><i class="fa fa-code" aria-hidden="true"></i> Soluciones según tu necesidad</span>
         </div>
-        <div class="row quote-layout">
-            <div class="col-lg-5 reveal">
-                <div class="contact-copy">
-                    <span class="quote-step-label">Antes de empezar</span>
-                    <h3>Una conversación clara para construir la solución correcta.</h3>
-                    <p>No necesitas tener todos los detalles definidos. Comparte el problema, la idea o el proceso que deseas mejorar y podremos analizar el siguiente paso.</p>
-                    <div class="quote-advantages">
-                        <article>
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                            <div><h4>Análisis de tu necesidad</h4><p>La propuesta parte del objetivo real de tu proyecto.</p></div>
-                        </article>
-                        <article>
-                            <i class="fa fa-sliders" aria-hidden="true"></i>
-                            <div><h4>Solución personalizada</h4><p>Funcionalidades y alcance adaptados a cada caso.</p></div>
-                        </article>
-                        <article>
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                            <div><h4>Información protegida</h4><p>Tus datos se utilizan únicamente para responder a la solicitud.</p></div>
-                        </article>
-                    </div>
-                    <div class="direct-contact">
-                        <span>¿Prefieres conversar directamente?</span>
-                        <a href="tel:+593969048598"><i class="fa fa-phone" aria-hidden="true"></i> 0969048598</a>
-                        <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Contactar por WhatsApp</a>
-                    </div>
+        <div class="whatsapp-contact-shell reveal">
+            <div class="whatsapp-contact-copy">
+                <span class="quote-step-label">Qué conviene contar</span>
+                <h3>Un buen proyecto comienza entendiendo el problema.</h3>
+                <p>No necesitas preparar un documento técnico. Para orientar mejor la conversación, basta con compartir tres ideas sencillas:</p>
+                <div class="whatsapp-brief-grid">
+                    <article>
+                        <span>01</span>
+                        <div><h4>El reto actual</h4><p>Qué tarea, proceso o situación está generando dificultad.</p></div>
+                    </article>
+                    <article>
+                        <span>02</span>
+                        <div><h4>Quién utilizará la solución</h4><p>Personas, clientes o equipos que interactuarán con el sistema.</p></div>
+                    </article>
+                    <article>
+                        <span>03</span>
+                        <div><h4>El resultado esperado</h4><p>Qué deseas agilizar, controlar, automatizar o mejorar.</p></div>
+                    </article>
                 </div>
             </div>
-            <div class="col-lg-7 reveal">
-                <div class="quote-form-card">
-                    {% if form.non_field_errors %}
-                        <div class="form-alert error-alert" role="alert">
-                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                            <div>{{ form.non_field_errors }}</div>
-                        </div>
-                    {% endif %}
-
-                    <div class="form-card-header">
-                        <div class="form-card-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></div>
-                        <div><span>Solicitud de proyecto</span><h3>Cuéntame qué necesitas</h3></div>
-                    </div>
-
-                    <form method="post" action="{% url 'solicitar_contacto' %}" class="quote-form" id="quote-form" novalidate>
-                        {% csrf_token %}
-                        {{ form.started_at }}
-                        <div class="honeypot" aria-hidden="true">{{ form.website }}</div>
-                        <div class="row">
-                            <div class="col-12"><h4 class="form-section-title"><span>01</span> Información del cliente</h4></div>
-                            <div class="col-md-6 form-group{% if form.nombre.errors %} field-has-errors{% endif %}">
-                                <label for="{{ form.nombre.id_for_label }}">Nombre completo <span>*</span></label>
-                                {{ form.nombre }}
-                                {% for error in form.nombre.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
-                            </div>
-                            <div class="col-md-6 form-group{% if form.empresa.errors %} field-has-errors{% endif %}">
-                                <label for="{{ form.empresa.id_for_label }}">Empresa o negocio <small>opcional</small></label>
-                                {{ form.empresa }}
-                                {% for error in form.empresa.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
-                            </div>
-                            <div class="col-md-6 form-group{% if form.telefono.errors %} field-has-errors{% endif %}">
-                                <label for="{{ form.telefono.id_for_label }}">Teléfono / WhatsApp <span>*</span></label>
-                                {{ form.telefono }}
-                                {% for error in form.telefono.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
-                            </div>
-                            <div class="col-md-6 form-group{% if form.email.errors %} field-has-errors{% endif %}">
-                                <label for="{{ form.email.id_for_label }}">Correo electrónico <span>*</span></label>
-                                {{ form.email }}
-                                {% for error in form.email.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
-                            </div>
-                            <div class="col-12"><h4 class="form-section-title project-form-title"><span>02</span> Información del proyecto</h4></div>
-                            <div class="col-md-7 form-group{% if form.tipo_proyecto.errors %} field-has-errors{% endif %}">
-                                <label for="{{ form.tipo_proyecto.id_for_label }}">¿Qué necesitas? <span>*</span></label>
-                                {{ form.tipo_proyecto }}
-                                {% for error in form.tipo_proyecto.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
-                            </div>
-                            <div class="col-md-5 form-group{% if form.presupuesto.errors %} field-has-errors{% endif %}">
-                                <label for="{{ form.presupuesto.id_for_label }}">Presupuesto aproximado <small>opcional</small></label>
-                                {{ form.presupuesto }}
-                                {% for error in form.presupuesto.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
-                            </div>
-                            <div class="col-12 form-group{% if form.descripcion.errors %} field-has-errors{% endif %}">
-                                <label for="{{ form.descripcion.id_for_label }}">Cuéntame sobre tu proyecto <span>*</span></label>
-                                {{ form.descripcion }}
-                                {% for error in form.descripcion.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
-                            </div>
-                            <div class="col-12 form-group preference-group{% if form.preferencia_contacto.errors %} field-has-errors{% endif %}">
-                                <fieldset>
-                                    <legend>¿Cómo prefieres que te contacte?</legend>
-                                    <div class="preference-options">
-                                        {% for option in form.preferencia_contacto %}<div>{{ option }}</div>{% endfor %}
-                                    </div>
-                                </fieldset>
-                                {% for error in form.preferencia_contacto.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
-                            </div>
-                            <div class="col-12 form-submit-row">
-                                <div class="submit-assurance"><i class="fa fa-lock" aria-hidden="true"></i><p>Tus datos serán utilizados únicamente para responder a tu solicitud.</p></div>
-                                <button type="submit" class="site-btn quote-submit"><span>Solicitar mi cotización</span> <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                            </div>
-                        </div>
-                    </form>
+            <aside class="whatsapp-action-card" aria-label="Contacto para desarrollo de software por WhatsApp">
+                <div class="whatsapp-action-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></div>
+                <span>Canal oficial de contacto</span>
+                <h3>Hablemos por WhatsApp</h3>
+                <p>Abre una conversación directa para analizar tu necesidad y definir si una solución web o de software es adecuada para tu negocio.</p>
+                <a href="{{ whatsapp_url }}" class="site-btn whatsapp-primary-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i> Iniciar conversación
+                </a>
+                <div class="whatsapp-contact-detail">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <div><strong>Atención directa</strong><small>La disponibilidad y el alcance se coordinan durante la conversación.</small></div>
                 </div>
-            </div>
+                <small class="whatsapp-privacy-note"><i class="fa fa-shield" aria-hidden="true"></i> No envíes contraseñas ni información bancaria.</small>
+            </aside>
         </div>
     </div>
 </section>
-
-{% if cotizacion_resultado %}
-<div id="cotizacion-feedback" class="form-alert cotizacion-feedback-fallback {% if cotizacion_resultado == 'success' %}success-alert{% else %}error-alert{% endif %}" data-status="{{ cotizacion_resultado }}" role="{% if cotizacion_resultado == 'success' %}status{% else %}alert{% endif %}" hidden>
-    <i class="fa {% if cotizacion_resultado == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}" aria-hidden="true"></i>
-    <div>
-        {% if cotizacion_resultado == "success" %}
-            <strong>¡Información enviada correctamente!</strong>
-            <p>Hemos recibido su solicitud correctamente. Nuestro equipo revisará la información proporcionada y se pondrá en contacto con usted lo antes posible mediante los datos registrados.</p>
-        {% else %}
-            <strong>No se pudo enviar la solicitud</strong>
-            <p>Ocurrió un inconveniente al procesar su solicitud. Por favor, inténtelo nuevamente en unos momentos.</p>
-        {% endif %}
-    </div>
-</div>
-<noscript>
-    <div class="container cotizacion-noscript-message">
-        <div class="form-alert {% if cotizacion_resultado == 'success' %}success-alert{% else %}error-alert{% endif %}" role="{% if cotizacion_resultado == 'success' %}status{% else %}alert{% endif %}">
-            <i class="fa {% if cotizacion_resultado == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}" aria-hidden="true"></i>
-            <div>
-                {% if cotizacion_resultado == "success" %}
-                    <strong>¡Información enviada correctamente!</strong>
-                    <p>Hemos recibido su solicitud correctamente. Nuestro equipo revisará la información proporcionada y se pondrá en contacto con usted lo antes posible mediante los datos registrados.</p>
-                {% else %}
-                    <strong>No se pudo enviar la solicitud</strong>
-                    <p>Ocurrió un inconveniente al procesar su solicitud. Por favor, inténtelo nuevamente en unos momentos.</p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</noscript>
-{% endif %}
-{% endblock %}
-
-{% block page_vendor_scripts %}
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.25/dist/sweetalert2.all.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.22.1/dist/jquery.validate.min.js"></script>
 {% endblock %}

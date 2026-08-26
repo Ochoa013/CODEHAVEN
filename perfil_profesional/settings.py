@@ -132,12 +132,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Notificaciones de nuevas cotizaciones mediante Resend. Las credenciales y
-# direcciones se leen únicamente del entorno y nunca se almacenan en el código.
-RESEND_API_KEY = os.getenv("RESEND_API_KEY", "").strip()
-RESEND_FROM_EMAIL = os.getenv("RESEND_FROM_EMAIL", "onboarding@resend.dev").strip()
-CONTACT_EMAIL = os.getenv("CONTACT_EMAIL", "").strip()
-
 # Cabeceras y cookies seguras. En producción se exige HTTPS.
 X_FRAME_OPTIONS = "DENY"
 SECURE_CONTENT_TYPE_NOSNIFF = True
