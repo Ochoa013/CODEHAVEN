@@ -2,7 +2,6 @@ import time
 from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
-from django.core import mail
 from django.core import signing
 from django.test import TestCase, override_settings
 from django.urls import reverse
@@ -10,7 +9,7 @@ from django.urls import reverse
 from .models import SolicitudCotizacion
 from .notificaciones import (
     _contenido_notificacion,
-    _enviar_smtp,
+    _enviar_resend,
     notificar_nueva_cotizacion,
 )
 
@@ -32,8 +31,16 @@ class SitioTests(TestCase):
         payload.update(changes)
         return payload
 
-    def test_home_carga_con_formulario_y_contenido_principal(self):
+    def test_portada_presenta_las_dos_areas_profesionales(self):
         response = self.client.get(reverse("home"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "¿Problemas legales?")
+        self.assertContains(response, "¿Quieres optimizar tu negocio?")
+        self.assertContains(response, reverse("asesoria_legal"))
+        self.assertContains(response, reverse("desarrollo_web"))
+
+    def test_desarrollo_web_carga_con_formulario_y_contenido_principal(self):
+        response = self.client.get(reverse("desarrollo_web"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Convierte tu idea en")
         self.assertContains(response, "Solicitar cotización")
@@ -43,15 +50,60 @@ class SitioTests(TestCase):
         self.assertContains(response, "Carrusel de especialidades")
         self.assertNotContains(response, 'id="sobre-mi"')
         self.assertContains(response, "csrfmiddlewaretoken")
+        self.assertContains(response, "jquery-validation@1.22.1")
+        self.assertContains(response, 'id="quote-form" novalidate')
+        self.assertContains(response, "Ej. nombre@empresa.com")
+        self.assertContains(response, "Selecciona el servicio que necesitas")
 
-    @patch("contacto.views.notificar_nueva_cotizacion")
+    def test_asesoria_legal_carga_con_servicios_y_contacto(self):
+        response = self.client.get(reverse("asesoria_legal"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Respaldo legal para tomar decisiones")
+        self.assertContains(response, "Consulta y orientación")
+        self.assertContains(response, "wa.me/593969048598")
+
+    @patch(
+        "contacto.views.notificar_nueva_cotizacion",
+        return_value=SolicitudCotizacion.EstadoNotificacion.ENVIADA_RESEND,
+    )
     def test_solicitud_valida_se_guarda_y_muestra_confirmacion(self, notify):
         response = self.client.post(reverse("solicitar_contacto"), self.valid_payload(), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(SolicitudCotizacion.objects.count(), 1)
         notify.assert_called_once()
-        self.assertContains(response, "¡Solicitud recibida!")
-        self.assertContains(response, "acabo%20de%20enviar%20una%20solicitud")
+        self.assertContains(response, "¡Información enviada correctamente!")
+        self.assertContains(response, 'data-status="success"')
+        self.assertContains(response, "sweetalert2@11.26.25")
+
+    @patch(
+        "contacto.views.notificar_nueva_cotizacion",
+        return_value=SolicitudCotizacion.EstadoNotificacion.FALLIDA,
+    )
+    def test_fallo_de_envio_guarda_solicitud_y_muestra_error_seguro(self, notify):
+        response = self.client.post(reverse("solicitar_contacto"), self.valid_payload(), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(SolicitudCotizacion.objects.count(), 1)
+        notify.assert_called_once()
+        self.assertContains(response, "No se pudo enviar la solicitud")
+        self.assertContains(response, 'data-status="error"')
+        self.assertNotContains(response, "Traceback")
+
+    @override_settings(
+        RESEND_API_KEY="re_test",
+        RESEND_FROM_EMAIL="notificaciones@example.com",
+        CONTACT_EMAIL="destino@example.com",
+    )
+    @patch("contacto.notificaciones.resend.Emails.send", return_value={"id": "email-id"})
+    def test_post_redirect_get_limpia_formulario_y_evitar_registro_duplicado(self, resend_send):
+        first = self.client.post(reverse("solicitar_contacto"), self.valid_payload())
+        second = self.client.post(reverse("solicitar_contacto"), self.valid_payload())
+        self.assertEqual(first.status_code, 302)
+        self.assertEqual(second.status_code, 302)
+        self.assertEqual(SolicitudCotizacion.objects.count(), 1)
+        resend_send.assert_called_once()
+
+        response = self.client.get(second.url)
+        self.assertFalse(response.context["form"].is_bound)
 
     def test_validacion_servidor_rechaza_datos_invalidos(self):
         response = self.client.post(
@@ -83,12 +135,12 @@ class SitioTests(TestCase):
         self.assertContains(response, "El nombre solo puede contener letras", status_code=422)
 
     @override_settings(
-        EMAIL_HOST_USER="ochoaesteban593@gmail.com",
-        EMAIL_HOST_PASSWORD="app-password-test",
-        COTIZACIONES_EMAIL="ochoaesteban593@gmail.com",
+        RESEND_API_KEY="re_test",
+        RESEND_FROM_EMAIL="notificaciones@example.com",
+        CONTACT_EMAIL="destino@example.com",
     )
-    @patch("contacto.notificaciones._enviar_smtp", return_value="smtp")
-    def test_smtp_es_el_unico_proveedor_y_registra_el_envio(self, smtp):
+    @patch("contacto.notificaciones._enviar_resend", return_value="resend-id")
+    def test_resend_es_el_unico_proveedor_y_registra_el_envio(self, send_resend):
         cotizacion = SolicitudCotizacion.objects.create(
             nombre="Cliente de prueba",
             telefono="0999999999",
@@ -99,13 +151,13 @@ class SitioTests(TestCase):
         )
         estado = notificar_nueva_cotizacion(cotizacion)
         cotizacion.refresh_from_db()
-        self.assertEqual(estado, SolicitudCotizacion.EstadoNotificacion.ENVIADA_SMTP)
-        self.assertEqual(cotizacion.notificacion_referencia, "smtp")
-        smtp.assert_called_once()
+        self.assertEqual(estado, SolicitudCotizacion.EstadoNotificacion.ENVIADA_RESEND)
+        self.assertEqual(cotizacion.notificacion_referencia, "resend-id")
+        send_resend.assert_called_once()
 
-    @override_settings(EMAIL_HOST_USER="", EMAIL_HOST_PASSWORD="")
-    @patch("contacto.notificaciones._enviar_smtp")
-    def test_smtp_sin_credenciales_no_intenta_enviar(self, smtp):
+    @override_settings(RESEND_API_KEY="", RESEND_FROM_EMAIL="", CONTACT_EMAIL="")
+    @patch("contacto.notificaciones._enviar_resend")
+    def test_resend_sin_configuracion_no_intenta_enviar(self, send_resend):
         cotizacion = SolicitudCotizacion.objects.create(
             nombre="Cliente sin configuración",
             telefono="0999999999",
@@ -116,14 +168,15 @@ class SitioTests(TestCase):
         )
         estado = notificar_nueva_cotizacion(cotizacion)
         self.assertEqual(estado, SolicitudCotizacion.EstadoNotificacion.SIN_CONFIGURAR)
-        smtp.assert_not_called()
+        send_resend.assert_not_called()
 
     @override_settings(
-        EMAIL_HOST_USER="ochoaesteban593@gmail.com",
-        EMAIL_HOST_PASSWORD="app-password-test",
+        RESEND_API_KEY="re_test",
+        RESEND_FROM_EMAIL="notificaciones@example.com",
+        CONTACT_EMAIL="destino@example.com",
     )
-    @patch("contacto.notificaciones._enviar_smtp", side_effect=RuntimeError("fallo SMTP controlado"))
-    def test_fallo_smtp_se_registra_sin_interrumpir_la_solicitud(self, smtp):
+    @patch("contacto.notificaciones._enviar_resend", side_effect=RuntimeError("fallo controlado"))
+    def test_fallo_resend_se_registra_sin_exponer_detalle(self, send_resend):
         cotizacion = SolicitudCotizacion.objects.create(
             nombre="Cliente con fallo",
             telefono="0999999999",
@@ -132,34 +185,47 @@ class SitioTests(TestCase):
             descripcion="Necesito desarrollar una aplicación web para gestionar clientes.",
             preferencia_contacto="email",
         )
-        estado = notificar_nueva_cotizacion(cotizacion)
+        with self.assertLogs("contacto.notificaciones", level="ERROR"):
+            estado = notificar_nueva_cotizacion(cotizacion)
+        cotizacion.refresh_from_db()
         self.assertEqual(estado, SolicitudCotizacion.EstadoNotificacion.FALLIDA)
-        smtp.assert_called_once()
+        self.assertEqual(cotizacion.notificacion_detalle, "Resend no confirmó el envío.")
+        self.assertNotIn("fallo controlado", cotizacion.notificacion_detalle)
+        send_resend.assert_called_once()
 
     @override_settings(
-        EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend",
-        EMAIL_HOST_USER="remitente@example.com",
-        EMAIL_HOST_PASSWORD="credencial-de-prueba",
-        DEFAULT_FROM_EMAIL="CODEHAVEN <remitente@example.com>",
-        COTIZACIONES_EMAIL="ochoaesteban593@gmail.com",
+        RESEND_API_KEY="re_test",
+        RESEND_FROM_EMAIL="notificaciones@example.com",
+        CONTACT_EMAIL="destino@example.com",
     )
-    def test_correo_profesional_se_dirige_al_destinatario_solicitado(self):
+    @patch("contacto.notificaciones.resend.Emails.send", return_value={"id": "email-id"})
+    def test_correo_usa_solo_contact_email_y_cliente_como_reply_to(self, resend_send):
         cotizacion = SolicitudCotizacion.objects.create(
             nombre="Cliente de prueba",
             empresa="Negocio de prueba",
             telefono="0999999999",
             email="cliente@example.com",
             tipo_proyecto="aplicacion_web",
-            descripcion="Necesito desarrollar un sistema web para administrar mi negocio.",
+            descripcion="Necesito un sistema web <strong>privado</strong> para mi negocio.",
             preferencia_contacto="whatsapp",
         )
         asunto, html, texto = _contenido_notificacion(cotizacion)
-        _enviar_smtp(cotizacion, asunto, html, texto)
-        self.assertEqual(len(mail.outbox), 1)
-        self.assertEqual(mail.outbox[0].to, ["ochoaesteban593@gmail.com"])
-        self.assertEqual(mail.outbox[0].subject, "Nueva solicitud de cotización - Cliente de prueba")
-        self.assertIn("Necesito desarrollar un sistema web", mail.outbox[0].body)
-        self.assertEqual(mail.outbox[0].alternatives[0].mimetype, "text/html")
+        reference = _enviar_resend(cotizacion, asunto, html, texto)
+
+        params, options = resend_send.call_args.args
+        self.assertEqual(reference, "email-id")
+        self.assertEqual(params["from"], "CODEHAVEN <notificaciones@example.com>")
+        self.assertEqual(params["to"], ["destino@example.com"])
+        self.assertEqual(params["reply_to"], "cliente@example.com")
+        self.assertNotIn("cc", params)
+        self.assertNotIn("bcc", params)
+        self.assertEqual(
+            params["subject"],
+            "Nueva solicitud de desarrollo de software - Cliente de prueba",
+        )
+        self.assertIn("&lt;strong&gt;privado&lt;/strong&gt;", params["html"])
+        self.assertNotIn("<strong>privado</strong>", params["html"])
+        self.assertEqual(options["idempotency_key"], f"cotizacion-{cotizacion.pk}")
 
     def test_solicitud_es_visible_en_admin(self):
         user = get_user_model().objects.create_superuser(

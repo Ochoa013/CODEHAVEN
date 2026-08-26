@@ -37,7 +37,7 @@ class SolicitudCotizacionForm(forms.ModelForm):
         widgets = {
             "nombre": forms.TextInput(
                 attrs={
-                    "placeholder": "Ej. Juan Pérez",
+                    "placeholder": "Ej. Andrea López",
                     "autocomplete": "name",
                     "minlength": "2",
                     "maxlength": "80",
@@ -45,7 +45,7 @@ class SolicitudCotizacionForm(forms.ModelForm):
             ),
             "empresa": forms.TextInput(
                 attrs={
-                    "placeholder": "Ej. Mi Empresa S.A.",
+                    "placeholder": "Ej. Comercial Andina (opcional)",
                     "autocomplete": "organization",
                     "maxlength": "120",
                 }
@@ -62,7 +62,7 @@ class SolicitudCotizacionForm(forms.ModelForm):
             ),
             "email": forms.EmailInput(
                 attrs={
-                    "placeholder": "ejemplo@correo.com",
+                    "placeholder": "Ej. nombre@empresa.com",
                     "autocomplete": "email",
                     "maxlength": "254",
                 }
@@ -70,13 +70,13 @@ class SolicitudCotizacionForm(forms.ModelForm):
             "tipo_proyecto": forms.Select(attrs={"autocomplete": "off"}),
             "presupuesto": forms.TextInput(
                 attrs={
-                    "placeholder": "Rango o valor estimado (opcional)",
+                    "placeholder": "Ej. USD 1.500 – 3.000 (opcional)",
                     "maxlength": "80",
                 }
             ),
             "descripcion": forms.Textarea(
                 attrs={
-                    "placeholder": "Describe brevemente qué necesitas, qué problema deseas solucionar y las principales funciones que debería tener tu sistema.",
+                    "placeholder": "Cuéntanos qué proceso deseas mejorar, quién utilizará la solución y cuál es el resultado que esperas obtener.",
                     "rows": "7",
                     "minlength": "30",
                     "maxlength": "4000",
@@ -99,7 +99,7 @@ class SolicitudCotizacionForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["tipo_proyecto"].choices = [
-            ("", "Selecciona una opción"),
+            ("", "Selecciona el servicio que necesitas"),
             *SolicitudCotizacion.TipoProyecto.choices,
         ]
         self.fields["started_at"].initial = signing.dumps(time.time(), salt="contact-form")

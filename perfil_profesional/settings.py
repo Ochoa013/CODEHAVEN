@@ -132,22 +132,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Notificaciones de nuevas cotizaciones. Las credenciales se leen únicamente
-# del entorno y nunca se almacenan en el código fuente.
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "").strip()
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "").strip()
-EMAIL_TIMEOUT = 10
-DEFAULT_FROM_EMAIL = os.getenv(
-    "DEFAULT_FROM_EMAIL", EMAIL_HOST_USER or "CODEHAVEN <no-reply@localhost>"
-).strip()
-
-COTIZACIONES_EMAIL = os.getenv(
-    "COTIZACIONES_EMAIL", "ochoaesteban593@gmail.com"
-).strip()
+# Notificaciones de nuevas cotizaciones mediante Resend. Las credenciales y
+# direcciones se leen únicamente del entorno y nunca se almacenan en el código.
+RESEND_API_KEY = os.getenv("RESEND_API_KEY", "").strip()
+RESEND_FROM_EMAIL = os.getenv("RESEND_FROM_EMAIL", "onboarding@resend.dev").strip()
+CONTACT_EMAIL = os.getenv("CONTACT_EMAIL", "").strip()
 
 # Cabeceras y cookies seguras. En producción se exige HTTPS.
 X_FRAME_OPTIONS = "DENY"

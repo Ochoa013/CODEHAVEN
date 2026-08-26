@@ -1,6 +1,7 @@
-CODEHAVEN · NUEVA SOLICITUD DE COTIZACIÓN
+CODEHAVEN
+NUEVA SOLICITUD DE DESARROLLO DE SOFTWARE
 
-Has recibido una nueva solicitud desde tu página web.
+Se ha recibido una nueva solicitud mediante el formulario web de CODEHAVEN.
 
 DATOS DEL CLIENTE
 Nombre: {{ cotizacion.nombre }}
@@ -9,11 +10,13 @@ Teléfono: {{ cotizacion.telefono }}
 Correo: {{ cotizacion.email }}
 Preferencia de contacto: {{ cotizacion.get_preferencia_contacto_display }}
 
-PROYECTO
-Tipo: {{ cotizacion.get_tipo_proyecto_display }}
+INFORMACIÓN DEL PROYECTO
+Servicio solicitado: {{ cotizacion.get_tipo_proyecto_display }}
 Presupuesto: {{ cotizacion.presupuesto|default:"Por definir" }}
 
 Descripción:
 {{ cotizacion.descripcion }}
 
 Fecha: {{ cotizacion.fecha_solicitud|date:"d/m/Y H:i" }}
+
+Solicitud recibida desde CODEHAVEN.

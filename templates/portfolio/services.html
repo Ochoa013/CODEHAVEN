@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Soluciones profesionales | Tecnología y asesoría legal{% endblock %}
+{% block description %}Elige el servicio que necesitas: desarrollo de aplicaciones web y software para tu negocio, o asesoría legal clara y cercana.{% endblock %}
+{% block og_title %}Soluciones profesionales | Tecnología y asesoría legal{% endblock %}
+{% block og_description %}Desarrollo de aplicaciones web y asesoría legal: elige el servicio que necesitas y conoce cómo podemos ayudarte.{% endblock %}
+{% block twitter_title %}Tecnología y asesoría legal | Esteban Ochoa{% endblock %}
+{% block twitter_description %}Dos áreas profesionales para resolver retos de negocio y situaciones legales con atención personalizada.{% endblock %}
+{% block body_class %}service-selector-page{% endblock %}
+
+{% block header %}
+<header class="selector-header">
+    <a class="selector-brand" href="{% url 'home' %}" aria-label="Inicio — Servicios profesionales">
+        <span class="selector-monogram" aria-hidden="true">EO</span>
+        <span><strong>ESTEBAN OCHOA</strong><small>Soluciones profesionales</small></span>
+    </a>
+    <span class="selector-header-note">Elige cómo puedo ayudarte</span>
+</header>
+{% endblock %}
+
+{% block content %}
+<section class="service-selector" aria-labelledby="selector-title">
+    <div class="selector-intro">
+        <span class="selector-kicker">Dos áreas · Un mismo compromiso</span>
+        <h1 id="selector-title">¿Qué necesitas resolver hoy?</h1>
+        <p>Selecciona una opción para conocer el servicio, el proceso de trabajo y las formas de contacto.</p>
+    </div>
+
+    <div class="service-choice-grid">
+        <a class="service-choice service-choice-legal" href="{% url 'asesoria_legal' %}" aria-label="Conocer el servicio de asesoría legal">
+            <span class="choice-glow" aria-hidden="true"></span>
+            <span class="choice-topline"><i class="fa fa-balance-scale" aria-hidden="true"></i> Asesoría legal</span>
+            <span class="choice-content">
+                <small>¿Problemas legales?</small>
+                <strong>Te ofrecemos asesoría legal clara y estratégica.</strong>
+                <span class="choice-description">Comprende tus opciones, protege tus intereses y avanza con una ruta de acción definida.</span>
+                <span class="choice-action">Conocer asesoría legal <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+            </span>
+            <span class="choice-number" aria-hidden="true">01</span>
+        </a>
+
+        <a class="service-choice service-choice-tech" href="{% url 'desarrollo_web' %}" aria-label="Conocer el servicio de desarrollo de aplicaciones web">
+            <span class="choice-glow" aria-hidden="true"></span>
+            <span class="choice-topline"><i class="fa fa-code" aria-hidden="true"></i> Desarrollo de software</span>
+            <span class="choice-content">
+                <small>¿Quieres optimizar tu negocio?</small>
+                <strong>Solucionamos tus retos con aplicaciones web.</strong>
+                <span class="choice-description">Digitaliza procesos, reduce tareas manuales y convierte tus ideas en herramientas útiles.</span>
+                <span class="choice-action">Explorar soluciones digitales <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+            </span>
+            <span class="choice-number" aria-hidden="true">02</span>
+        </a>
+    </div>
+
+    <div class="selector-footnote">
+        <span><i class="fa fa-check-circle" aria-hidden="true"></i> Atención personalizada</span>
+        <span><i class="fa fa-check-circle" aria-hidden="true"></i> Soluciones según tu necesidad</span>
+        <span><i class="fa fa-check-circle" aria-hidden="true"></i> Comunicación directa</span>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer class="selector-footer">
+    <p>© 2026 Esteban Ochoa · Servicios profesionales</p>
+    <p>Selecciona un área para ver información detallada.</p>
+</footer>
+{% endblock %}
+
+{% block floating_contact %}{% endblock %}

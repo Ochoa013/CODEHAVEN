@@ -11,13 +11,13 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_EC">
     <meta property="og:site_name" content="CODEHAVEN | Software Development">
-    <meta property="og:title" content="CODEHAVEN | Desarrollo de Software y Soluciones Digitales">
-    <meta property="og:description" content="Software a medida, aplicaciones y soluciones digitales pensadas para las necesidades reales de tu proyecto o negocio.">
+    <meta property="og:title" content="{% block og_title %}CODEHAVEN | Desarrollo de Software y Soluciones Digitales{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Software a medida, aplicaciones y soluciones digitales pensadas para las necesidades reales de tu proyecto o negocio.{% endblock %}">
     <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/hero-software.jpg' %}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Desarrollo de Software y Aplicaciones">
-    <meta name="twitter:description" content="Soluciones digitales personalizadas para negocios, empresas, emprendimientos y profesionales.">
+    <meta name="twitter:title" content="{% block twitter_title %}Desarrollo de Software y Aplicaciones{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Soluciones digitales personalizadas para negocios, empresas, emprendimientos y profesionales.{% endblock %}">
     <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/hero-software.jpg' %}">
     <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     <link rel="icon" type="image/png" href="{% static 'img/favicon-portfolio.png' %}">
@@ -28,16 +28,17 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
     <div id="preloder" aria-hidden="true">
         <div class="loader"></div>
     </div>
 
+    {% block header %}
     <header class="header-section" id="inicio">
         <div class="container header-inner">
-            <a class="site-logo codehaven-brand" href="{% url 'home' %}" aria-label="CODEHAVEN — Inicio">
+            <a class="site-logo codehaven-brand" href="{% url 'home' %}" aria-label="Volver a elegir servicio">
                 <span class="codehaven-wordmark">CODEHAVEN</span>
             </a>
 
@@ -47,27 +48,29 @@
 
             <nav class="main-menu" id="main-menu" aria-label="Navegación principal">
                 <ul>
-                    <li><a href="{% url 'home' %}#inicio">Inicio</a></li>
-                    <li><a href="{% url 'home' %}#servicios">Servicios</a></li>
-                    <li><a href="{% url 'home' %}#tecnologias">Tecnologías</a></li>
-                    <li><a href="{% url 'home' %}#soluciones">Soluciones</a></li>
-                    <li><a href="{% url 'home' %}#proyectos">Proyectos</a></li>
-                    <li><a href="{% url 'home' %}#proceso">Cómo trabajamos</a></li>
-                    <li><a href="{% url 'home' %}#contacto">Contacto</a></li>
+                    <li><a href="{% url 'home' %}">Elegir servicio</a></li>
+                    <li><a href="{% url 'desarrollo_web' %}#inicio">Inicio</a></li>
+                    <li><a href="{% url 'desarrollo_web' %}#servicios">Servicios</a></li>
+                    <li><a href="{% url 'desarrollo_web' %}#soluciones">Soluciones</a></li>
+                    <li><a href="{% url 'desarrollo_web' %}#proyectos">Proyectos</a></li>
+                    <li><a href="{% url 'desarrollo_web' %}#proceso">Cómo trabajamos</a></li>
+                    <li><a href="{% url 'desarrollo_web' %}#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    {% endblock %}
 
     <main id="contenido">
         {% block content %}{% endblock %}
     </main>
 
+    {% block footer %}
     <section class="footer-top-section footer-contact-band" aria-label="Información de contacto">
         <div class="container">
             <div class="row align-items-start">
                 <div class="col-lg-5 footer-brand-column">
-                    <a class="footer-codehaven" href="{% url 'home' %}" aria-label="CODEHAVEN — Inicio">
+                    <a class="footer-codehaven" href="{% url 'home' %}" aria-label="Volver a elegir servicio">
                         <strong>CODEHAVEN</strong>
                         <span>Software Development · Soluciones digitales</span>
                     </a>
@@ -79,17 +82,17 @@
                 <div class="col-sm-6 col-lg-3 footer-link-column">
                     <h2>Servicios</h2>
                     <ul>
-                        <li><a href="{% url 'home' %}#servicios">Desarrollo web</a></li>
-                        <li><a href="{% url 'home' %}#servicios">Software a medida</a></li>
-                        <li><a href="{% url 'home' %}#servicios">Aplicaciones</a></li>
-                        <li><a href="{% url 'home' %}#soluciones">Sistemas empresariales</a></li>
-                        <li><a href="{% url 'home' %}#servicios">Automatización</a></li>
+                        <li><a href="{% url 'desarrollo_web' %}#servicios">Desarrollo web</a></li>
+                        <li><a href="{% url 'desarrollo_web' %}#servicios">Software a medida</a></li>
+                        <li><a href="{% url 'desarrollo_web' %}#servicios">Aplicaciones</a></li>
+                        <li><a href="{% url 'desarrollo_web' %}#soluciones">Sistemas empresariales</a></li>
+                        <li><a href="{% url 'desarrollo_web' %}#servicios">Automatización</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6 col-lg-4 footer-link-column">
                     <h2>¿Hablamos de tu proyecto?</h2>
                     <p>Describe tu necesidad y recibe una propuesta orientada a tus objetivos.</p>
-                    <a class="site-btn" href="{% url 'home' %}#contacto">Solicitar información</a>
+                    <a class="site-btn" href="{% url 'desarrollo_web' %}#contacto">Solicitar información</a>
                 </div>
             </div>
         </div>
@@ -101,16 +104,20 @@
             <p class="template-credit">Identidad adaptada sobre una plantilla de <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">Colorlib</a>.</p>
         </div>
     </footer>
+    {% endblock %}
 
+    {% block floating_contact %}
     <a class="whatsapp-float" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         <span>WhatsApp</span>
     </a>
+    {% endblock %}
 
     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/jquery.marquee.min.js' %}"></script>
+    {% block page_vendor_scripts %}{% endblock %}
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/portfolio.js' %}"></script>
 </body>

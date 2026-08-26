@@ -17,6 +17,10 @@ WHATSAPP_MESSAGE = (
     "Hola, Esteban. Estoy interesado/a en desarrollar un proyecto de software "
     "y quisiera recibir más información."
 )
+LEGAL_WHATSAPP_MESSAGE = (
+    "Hola, Esteban. Necesito orientación sobre un asunto legal y quisiera "
+    "solicitar una consulta."
+)
 
 
 def whatsapp_url(message=WHATSAPP_MESSAGE):
@@ -24,18 +28,30 @@ def whatsapp_url(message=WHATSAPP_MESSAGE):
 
 
 def page_context(request=None, form=None):
-    confirmation = None
-    if request and request.GET.get("solicitud") == "recibida":
-        confirmation = request.session.pop("cotizacion_confirmada", None)
+    notification_result = None
+    if request and request.GET.get("solicitud") == "resultado":
+        notification_result = request.session.pop("cotizacion_resultado", None)
     return {
         "form": form or SolicitudCotizacionForm(),
         "whatsapp_url": whatsapp_url(),
-        "cotizacion_confirmada": confirmation,
+        "cotizacion_resultado": notification_result,
     }
 
 
-def home(request):
+def service_selector(request):
+    return render(request, "portfolio/services.html")
+
+
+def desarrollo_web(request):
     return render(request, "portfolio/home.html", page_context(request))
+
+
+def asesoria_legal(request):
+    return render(
+        request,
+        "portfolio/legal.html",
+        {"whatsapp_url": whatsapp_url(LEGAL_WHATSAPP_MESSAGE)},
+    )
 
 
 @require_POST
@@ -44,31 +60,23 @@ def solicitar_contacto(request):
     form = SolicitudCotizacionForm(request.POST)
     if form.is_valid():
         duplicate_since = timezone.now() - timedelta(minutes=2)
-        duplicate_exists = SolicitudCotizacion.objects.filter(
+        cotizacion = SolicitudCotizacion.objects.filter(
             email=form.cleaned_data["email"],
             descripcion=form.cleaned_data["descripcion"],
             fecha_solicitud__gte=duplicate_since,
-        ).exists()
-        if duplicate_exists:
-            form.add_error(
-                None,
-                "Esta solicitud ya fue recibida. Evita enviarla nuevamente; pronto será revisada.",
-            )
-        else:
+        ).first()
+
+        if cotizacion is None:
             cotizacion = form.save()
-            notificar_nueva_cotizacion(cotizacion)
-            project_name = cotizacion.get_tipo_proyecto_display()
-            fast_message = (
-                "Hola Esteban, acabo de enviar una solicitud de cotización desde tu "
-                f"página web. Mi nombre es {cotizacion.nombre} y estoy interesado/a en "
-                f"{project_name}."
-            )
-            request.session["cotizacion_confirmada"] = {
-                "nombre": cotizacion.nombre,
-                "proyecto": project_name,
-                "whatsapp_url": whatsapp_url(fast_message),
-            }
-            return redirect(f"{reverse('home')}?solicitud=recibida#contacto")
+
+        notification_state = notificar_nueva_cotizacion(cotizacion)
+        request.session["cotizacion_resultado"] = (
+            "success"
+            if notification_state
+            == SolicitudCotizacion.EstadoNotificacion.ENVIADA_RESEND
+            else "error"
+        )
+        return redirect(f"{reverse('desarrollo_web')}?solicitud=resultado#contacto")
 
     return render(request, "portfolio/home.html", page_context(request, form), status=422)
 

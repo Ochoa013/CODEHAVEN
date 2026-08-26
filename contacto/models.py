@@ -33,7 +33,8 @@ class SolicitudCotizacion(models.Model):
 
     class EstadoNotificacion(models.TextChoices):
         PENDIENTE = "pendiente", "Pendiente"
-        ENVIADA_SMTP = "enviada_smtp", "Enviada por SMTP"
+        ENVIADA_RESEND = "enviada_resend", "Enviada por Resend"
+        ENVIADA_SMTP = "enviada_smtp", "Enviada por SMTP (histórico)"
         SIN_CONFIGURAR = "sin_configurar", "Proveedor no configurado"
         FALLIDA = "fallida", "Fallida"
 

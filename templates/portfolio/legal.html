@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}Asesoría legal | Orientación clara y estratégica{% endblock %}
+{% block description %}Asesoría y orientación legal personalizada para personas, profesionales y negocios. Analiza tu situación y define los próximos pasos con claridad.{% endblock %}
+{% block og_title %}Asesoría legal | Orientación clara y estratégica{% endblock %}
+{% block og_description %}Comprende tus alternativas y define una ruta de acción con asesoría legal personalizada.{% endblock %}
+{% block twitter_title %}Asesoría legal | Esteban Ochoa{% endblock %}
+{% block twitter_description %}Orientación legal clara para personas, profesionales y negocios.{% endblock %}
+{% block body_class %}legal-page{% endblock %}
+
+{% block header %}
+<header class="header-section legal-header" id="inicio">
+    <div class="container header-inner">
+        <a class="legal-brand" href="{% url 'home' %}" aria-label="Volver a elegir servicio">
+            <span class="legal-brand-mark"><i class="fa fa-balance-scale" aria-hidden="true"></i></span>
+            <span class="legal-brand-copy"><strong>ESTEBAN OCHOA</strong><small>Asesoría legal</small></span>
+        </a>
+
+        <button class="nav-switch" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-menu">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <nav class="main-menu legal-menu" id="main-menu" aria-label="Navegación de asesoría legal">
+            <ul>
+                <li><a href="{% url 'home' %}">Elegir servicio</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios-legales">Servicios</a></li>
+                <li><a href="#proceso-legal">Cómo te ayudamos</a></li>
+                <li><a href="#contacto-legal">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<section class="legal-hero" aria-labelledby="legal-hero-title">
+    <div class="legal-hero-accent" aria-hidden="true"></div>
+    <div class="container legal-hero-grid">
+        <div class="legal-hero-copy">
+            <span class="legal-eyebrow"><i class="fa fa-gavel" aria-hidden="true"></i> Orientación · Prevención · Acompañamiento</span>
+            <h1 id="legal-hero-title">Respaldo legal para tomar decisiones con <span>claridad.</span></h1>
+            <p>Analizamos tu situación, explicamos tus alternativas en lenguaje sencillo y definimos contigo los próximos pasos para proteger tus intereses.</p>
+            <div class="legal-hero-actions">
+                <a class="legal-btn" href="#contacto-legal">Solicitar una consulta</a>
+                <a class="legal-btn legal-btn-outline" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp</a>
+            </div>
+            <div class="legal-hero-points" aria-label="Características del servicio">
+                <span><i class="fa fa-lock" aria-hidden="true"></i> Atención confidencial</span>
+                <span><i class="fa fa-comments-o" aria-hidden="true"></i> Explicaciones claras</span>
+                <span><i class="fa fa-map-signs" aria-hidden="true"></i> Ruta de acción</span>
+            </div>
+        </div>
+
+        <div class="legal-hero-visual" aria-hidden="true">
+            <div class="legal-orbit legal-orbit-one"></div>
+            <div class="legal-orbit legal-orbit-two"></div>
+            <div class="legal-seal">
+                <span class="legal-seal-ring"></span>
+                <i class="fa fa-balance-scale"></i>
+                <small>Asesoría</small>
+                <strong>LEGAL</strong>
+            </div>
+            <span class="legal-visual-word legal-visual-word-one">Análisis</span>
+            <span class="legal-visual-word legal-visual-word-two">Estrategia</span>
+        </div>
+    </div>
+</section>
+
+<section class="legal-principles" aria-label="Principios de atención">
+    <div class="container legal-principles-grid">
+        <article><span>01</span><div><strong>Escucha responsable</strong><small>Cada caso comienza por comprender el contexto.</small></div></article>
+        <article><span>02</span><div><strong>Criterio y transparencia</strong><small>Opciones, alcances y riesgos explicados con honestidad.</small></div></article>
+        <article><span>03</span><div><strong>Atención personalizada</strong><small>Una ruta pensada según tu situación concreta.</small></div></article>
+    </div>
+</section>
+
+<section class="legal-services spad" id="servicios-legales" aria-labelledby="legal-services-title">
+    <div class="container">
+        <header class="legal-section-heading reveal">
+            <span>Áreas de atención</span>
+            <h2 id="legal-services-title">Asesoría para prevenir, resolver y avanzar</h2>
+            <p>Recibe una primera orientación para comprender el problema y determinar el camino adecuado según sus características.</p>
+        </header>
+
+        <div class="legal-service-grid">
+            <article class="legal-service-card legal-service-featured reveal">
+                <span class="legal-card-icon"><i class="fa fa-comments" aria-hidden="true"></i></span>
+                <small>01</small>
+                <h3>Consulta y orientación</h3>
+                <p>Revisión inicial de tu situación, explicación de alternativas y definición de los pasos más convenientes.</p>
+                <a href="#contacto-legal">Consultar ahora <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            </article>
+            <article class="legal-service-card reveal">
+                <span class="legal-card-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
+                <small>02</small>
+                <h3>Contratos y documentos</h3>
+                <p>Lectura, revisión y orientación sobre cláusulas, obligaciones, riesgos y acuerdos antes de firmar.</p>
+            </article>
+            <article class="legal-service-card reveal">
+                <span class="legal-card-icon"><i class="fa fa-handshake-o" aria-hidden="true"></i></span>
+                <small>03</small>
+                <h3>Conflictos y acuerdos</h3>
+                <p>Análisis de controversias y búsqueda de alternativas de solución con una visión práctica y ordenada.</p>
+            </article>
+            <article class="legal-service-card reveal">
+                <span class="legal-card-icon"><i class="fa fa-building-o" aria-hidden="true"></i></span>
+                <small>04</small>
+                <h3>Negocios y emprendimientos</h3>
+                <p>Orientación preventiva para decisiones, relaciones comerciales, compromisos y documentación del negocio.</p>
+            </article>
+            <article class="legal-service-card reveal">
+                <span class="legal-card-icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                <small>05</small>
+                <h3>Relaciones laborales</h3>
+                <p>Revisión general de situaciones laborales, documentos y obligaciones para identificar opciones de actuación.</p>
+            </article>
+            <article class="legal-service-card reveal">
+                <span class="legal-card-icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                <small>06</small>
+                <h3>Asuntos personales y civiles</h3>
+                <p>Orientación inicial frente a situaciones personales o patrimoniales que requieren atención jurídica.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="legal-decision-section spad" aria-labelledby="legal-decision-title">
+    <div class="container legal-decision-grid">
+        <div class="legal-decision-copy reveal">
+            <span class="legal-mini-title">Actuar a tiempo importa</span>
+            <h2 id="legal-decision-title">No dejes que la incertidumbre decida por ti.</h2>
+            <p>Una consulta oportuna puede ayudarte a ordenar los hechos, reconocer riesgos y evitar decisiones apresuradas. El primer paso es comprender bien dónde estás.</p>
+            <a class="legal-text-link" href="#contacto-legal">Cuéntanos tu situación <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="legal-decision-list reveal">
+            <article><i class="fa fa-search" aria-hidden="true"></i><div><strong>Antes de firmar</strong><span>Revisa condiciones y compromisos con anticipación.</span></div></article>
+            <article><i class="fa fa-exclamation-circle" aria-hidden="true"></i><div><strong>Cuando surge un conflicto</strong><span>Conoce tus alternativas antes de responder o negociar.</span></div></article>
+            <article><i class="fa fa-compass" aria-hidden="true"></i><div><strong>Si no sabes cómo avanzar</strong><span>Convierte las dudas en una secuencia clara de pasos.</span></div></article>
+        </div>
+    </div>
+</section>
+
+<section class="legal-process spad" id="proceso-legal" aria-labelledby="legal-process-title">
+    <div class="container">
+        <header class="legal-section-heading reveal">
+            <span>Cómo te ayudamos</span>
+            <h2 id="legal-process-title">Un proceso claro desde el primer contacto</h2>
+        </header>
+        <ol class="legal-process-grid">
+            <li class="reveal"><span>01</span><h3>Nos cuentas</h3><p>Compartes el contexto y tus principales inquietudes.</p></li>
+            <li class="reveal"><span>02</span><h3>Analizamos</h3><p>Ordenamos la información e identificamos los puntos relevantes.</p></li>
+            <li class="reveal"><span>03</span><h3>Te orientamos</h3><p>Explicamos las opciones, sus alcances y posibles próximos pasos.</p></li>
+            <li class="reveal"><span>04</span><h3>Avanzamos</h3><p>Definimos contigo la forma de acompañamiento adecuada.</p></li>
+        </ol>
+    </div>
+</section>
+
+<section class="legal-contact spad" id="contacto-legal" aria-labelledby="legal-contact-title">
+    <div class="container">
+        <div class="legal-contact-card reveal">
+            <div>
+                <span class="legal-mini-title">Primer paso</span>
+                <h2 id="legal-contact-title">Cuéntanos brevemente qué necesitas resolver.</h2>
+                <p>Escríbenos por WhatsApp para solicitar una consulta. No incluyas contraseñas, datos bancarios ni documentos sensibles en el primer mensaje.</p>
+            </div>
+            <div class="legal-contact-action">
+                <a class="legal-btn legal-btn-whatsapp" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-whatsapp" aria-hidden="true"></i> Solicitar consulta</a>
+                <small><i class="fa fa-clock-o" aria-hidden="true"></i> La disponibilidad se confirma al contactar.</small>
+            </div>
+        </div>
+        <p class="legal-disclaimer"><i class="fa fa-info-circle" aria-hidden="true"></i> La información de esta página es general y no sustituye el análisis profesional de un caso concreto. El envío de un mensaje no crea por sí solo una relación profesional.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+<section class="legal-footer-top" aria-label="Información de asesoría legal">
+    <div class="container legal-footer-grid">
+        <div><strong>ESTEBAN OCHOA</strong><span>Asesoría legal · Atención personalizada</span></div>
+        <nav aria-label="Enlaces legales del pie de página">
+            <a href="{% url 'home' %}">Elegir otro servicio</a>
+            <a href="#servicios-legales">Servicios</a>
+            <a href="#proceso-legal">Proceso</a>
+            <a href="#contacto-legal">Contacto</a>
+        </nav>
+    </div>
+</section>
+<footer class="legal-footer-bottom">
+    <div class="container"><p>© 2026 Esteban Ochoa. Todos los derechos reservados.</p><p>Orientación responsable y comunicación clara.</p></div>
+</footer>
+{% endblock %}
+
+{% block floating_contact %}
+<a class="whatsapp-float legal-whatsapp-float" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" aria-label="Solicitar consulta legal por WhatsApp">
+    <i class="fa fa-whatsapp" aria-hidden="true"></i><span>Consulta legal</span>
+</a>
+{% endblock %}

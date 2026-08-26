@@ -1,6 +1,12 @@
-# CODEHAVEN — Desarrollo de software
+# Servicios profesionales — Desarrollo de software y asesoría legal
 
-Sitio profesional de servicios de desarrollo de software construido con Django y adaptado sobre los recursos visuales de la plantilla existente.
+Sitio profesional construido con Django y adaptado sobre los recursos visuales de la plantilla existente. La portada permite elegir entre dos áreas: desarrollo de software bajo la identidad CODEHAVEN y asesoría legal.
+
+## Páginas principales
+
+- `/`: portada para elegir el servicio.
+- `/desarrollo-web/`: página de desarrollo de software y formulario de cotización.
+- `/asesoria-legal/`: página informativa de asesoría legal y contacto por WhatsApp.
 
 ## Ejecución local
 
@@ -46,20 +52,19 @@ La configuración de producción activa redirección HTTPS, cookies seguras, HST
 
 ## Notificaciones de cotización
 
-Cada solicitud se almacena primero en la base de datos. Después se envía una única notificación a `ochoaesteban593@gmail.com` exclusivamente mediante Gmail SMTP.
+Cada solicitud se almacena primero en la base de datos. Después se envía una única notificación mediante Resend, exclusivamente a la dirección configurada en `CONTACT_EMAIL`.
 
-La solicitud queda guardada aunque Gmail esté temporalmente fuera de servicio, y el resultado se consulta desde Django Admin.
+La solicitud queda guardada aunque Resend esté temporalmente fuera de servicio, y el resultado se consulta desde Django Admin. El correo del cliente se utiliza únicamente como `reply_to` para facilitar la respuesta.
 
 Las variables disponibles están documentadas en `.env.example`. Para desarrollo local, Django carga automáticamente el archivo `.env`, que está excluido de Git. En producción deben definirse como variables privadas del servicio de alojamiento.
 
-Para Gmail SMTP:
+Para Resend:
 
-- `EMAIL_HOST_USER=ochoaesteban593@gmail.com`
-- `EMAIL_HOST_PASSWORD`, usando una contraseña de aplicación de Google
-- `DEFAULT_FROM_EMAIL=CODEHAVEN <ochoaesteban593@gmail.com>`
-- `COTIZACIONES_EMAIL=ochoaesteban593@gmail.com`
+- `RESEND_API_KEY`, con la clave privada proporcionada por Resend.
+- `RESEND_FROM_EMAIL`, con una dirección remitente autorizada por Resend.
+- `CONTACT_EMAIL`, con el único destinatario de las solicitudes.
 
-Para activar el envío local solo debes completar `EMAIL_HOST_PASSWORD` en `.env`. La cuenta de Google debe tener verificación en dos pasos y una contraseña de aplicación habilitada.
+El dominio o la dirección remitente deben estar autorizados en Resend. El formulario mostrará la confirmación de éxito únicamente cuando Resend devuelva un identificador de envío.
 
 No se deben copiar credenciales reales dentro de `settings.py`, plantillas o archivos versionados.
 

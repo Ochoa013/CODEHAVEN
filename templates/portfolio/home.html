@@ -408,7 +408,7 @@
                         <div><span>Solicitud de proyecto</span><h3>Cuéntame qué necesitas</h3></div>
                     </div>
 
-                    <form method="post" action="{% url 'solicitar_contacto' %}" class="quote-form" id="quote-form">
+                    <form method="post" action="{% url 'solicitar_contacto' %}" class="quote-form" id="quote-form" novalidate>
                         {% csrf_token %}
                         {{ form.started_at }}
                         <div class="honeypot" aria-hidden="true">{{ form.website }}</div>
@@ -471,25 +471,39 @@
     </div>
 </section>
 
-{% if cotizacion_confirmada %}
-<div class="success-modal is-visible" data-success-modal role="dialog" aria-modal="true" aria-labelledby="success-title">
-    <div class="success-modal-backdrop" data-close-success></div>
-    <div class="success-modal-card">
-        <button type="button" class="success-modal-close" data-close-success aria-label="Cerrar confirmación"><i class="fa fa-times" aria-hidden="true"></i></button>
-        <div class="success-check"><i class="fa fa-check" aria-hidden="true"></i></div>
-        <span class="success-kicker">Cotización registrada correctamente</span>
-        <h2 id="success-title">¡Solicitud recibida!</h2>
-        <p>Gracias por contarme sobre tu proyecto. Tu solicitud fue registrada correctamente y me pondré en contacto contigo mediante el medio seleccionado.</p>
-        <div class="success-summary">
-            <span><small>Cliente</small>{{ cotizacion_confirmada.nombre }}</span>
-            <span><small>Proyecto</small>{{ cotizacion_confirmada.proyecto }}</span>
-        </div>
-        <div class="success-fast-contact">
-            <div><strong>¿Quieres una respuesta más rápida?</strong><small>Escríbeme directamente y sabré qué solicitud enviaste.</small></div>
-            <a href="{{ cotizacion_confirmada.whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="site-btn whatsapp-success"><i class="fa fa-whatsapp" aria-hidden="true"></i> Hablar por WhatsApp</a>
-        </div>
-        <a href="#inicio" class="success-home-link" data-close-success>Volver al inicio</a>
+{% if cotizacion_resultado %}
+<div id="cotizacion-feedback" class="form-alert cotizacion-feedback-fallback {% if cotizacion_resultado == 'success' %}success-alert{% else %}error-alert{% endif %}" data-status="{{ cotizacion_resultado }}" role="{% if cotizacion_resultado == 'success' %}status{% else %}alert{% endif %}" hidden>
+    <i class="fa {% if cotizacion_resultado == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}" aria-hidden="true"></i>
+    <div>
+        {% if cotizacion_resultado == "success" %}
+            <strong>¡Información enviada correctamente!</strong>
+            <p>Hemos recibido su solicitud correctamente. Nuestro equipo revisará la información proporcionada y se pondrá en contacto con usted lo antes posible mediante los datos registrados.</p>
+        {% else %}
+            <strong>No se pudo enviar la solicitud</strong>
+            <p>Ocurrió un inconveniente al procesar su solicitud. Por favor, inténtelo nuevamente en unos momentos.</p>
+        {% endif %}
     </div>
 </div>
+<noscript>
+    <div class="container cotizacion-noscript-message">
+        <div class="form-alert {% if cotizacion_resultado == 'success' %}success-alert{% else %}error-alert{% endif %}" role="{% if cotizacion_resultado == 'success' %}status{% else %}alert{% endif %}">
+            <i class="fa {% if cotizacion_resultado == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}" aria-hidden="true"></i>
+            <div>
+                {% if cotizacion_resultado == "success" %}
+                    <strong>¡Información enviada correctamente!</strong>
+                    <p>Hemos recibido su solicitud correctamente. Nuestro equipo revisará la información proporcionada y se pondrá en contacto con usted lo antes posible mediante los datos registrados.</p>
+                {% else %}
+                    <strong>No se pudo enviar la solicitud</strong>
+                    <p>Ocurrió un inconveniente al procesar su solicitud. Por favor, inténtelo nuevamente en unos momentos.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</noscript>
 {% endif %}
+{% endblock %}
+
+{% block page_vendor_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.25/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.22.1/dist/jquery.validate.min.js"></script>
 {% endblock %}
