@@ -19,15 +19,22 @@
           <small>Asesoría Legal & Soluciones Digitales</small>
         </span>
       </a>
-      <a class="header-link profile-header-link" href="perfil-profesional.html">Perfil profesional <span aria-hidden="true">→</span></a>
+      <button class="menu-button" type="button" data-menu-button aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav selector-nav" id="menu-principal" data-menu aria-label="Navegación principal">
+        <a href="asesoria-legal.html">Asesoría Legal</a>
+        <a href="desarrollo-web.html">Desarrollo de Sistemas</a>
+        <a class="selector-nav-cta" href="perfil-profesional.html">Perfil profesional <span aria-hidden="true">→</span></a>
+      </nav>
     </header>
 
     <main id="contenido">
       <section class="selector-hero" id="inicio" aria-labelledby="titulo-principal">
         <div class="selector-copy reveal">
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <span class="university-badge badge-utc">UTC · Ingeniería en Sistemas</span>
-            <span class="university-badge badge-utpl">UTPL · Derecho</span>
+            <span class="university-badge badge-utc">Ingeniería en Sistemas</span>
+            <span class="university-badge badge-utpl">Derecho</span>
           </div>
           <h1 id="titulo-principal">Criterio profesional y soluciones <em>efectivas.</em></h1>
           <p class="lead">Combinación estratégica de rigor jurídico y arquitectura informática. Nos adaptamos a las herramientas y tecnologías que requieras implementar, brindando seguimiento constante de cada caso y proyecto.</p>
@@ -44,7 +51,7 @@
           </div>
           <div>
             <p class="eyebrow">Esteban Alejandro Ochoa</p>
-            <p>Formación en Ingeniería en Sistemas por la Universidad Técnica de Cotopaxi y en Derecho por la Universidad Técnica Particular de Loja. Acompañamiento continuo y soluciones orientadas a los objetivos de tu proyecto.</p>
+            <p>Perfil técnico y jurídico: combino la Ingeniería en Sistemas y el Derecho para ofrecer soluciones integrales con criterio profesional. Acompañamiento continuo y seguimiento orientado a los objetivos de tu proyecto.</p>
             <span class="profile-feature-link">Conocer perfil profesional <b aria-hidden="true">→</b></span>
           </div>
         </a>
@@ -82,24 +89,25 @@
       <a class="footer-whatsapp-link" href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Quisiera%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
     </footer>
 
-    <!-- BOTÓN FLOTANTE SOBRIO DE WHATSAPP -->
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
     <div class="whatsapp-widget" data-whatsapp-widget>
       <div class="whatsapp-options" id="opciones-whatsapp" hidden>
         <div class="whatsapp-options-header">
+          <img class="whatsapp-avatar" src="assets/img/whatsapp-logo.svg" alt="">
           <div>
             <strong>Esteban Alejandro Ochoa</strong>
             <small>Atención Profesional Directa</small>
           </div>
         </div>
         <p style="font-size:0.78rem; color:#64748b; margin-bottom:0.4rem; padding:0 0.4rem;">Seleccione el motivo de su contacto:</p>
-        <a href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Solicito%20informaci%C3%B3n%20sobre%20su%20Perfil%20Profesional." target="_blank" rel="noopener noreferrer">
-          <span>Perfil Profesional e Información</span> <span aria-hidden="true">→</span>
-        </a>
         <a href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Quisiera%20solicitar%20asesor%C3%ADa%20legal%20y%20seguimiento%20de%20caso." target="_blank" rel="noopener noreferrer">
-          <span>Consulta de Asesoría Legal</span> <span aria-hidden="true">→</span>
+          <span>Asesoría Legal</span> <span aria-hidden="true">→</span>
         </a>
         <a href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Me%20interesa%20un%20proyecto%20de%20desarrollo%20de%20software." target="_blank" rel="noopener noreferrer">
-          <span>Desarrollo de Software y Sistemas</span> <span aria-hidden="true">→</span>
+          <span>Desarrollo de Sistemas</span> <span aria-hidden="true">→</span>
+        </a>
+        <a href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Solicito%20informaci%C3%B3n%20sobre%20su%20Perfil%20Profesional." target="_blank" rel="noopener noreferrer">
+          <span>Perfil Profesional</span> <span aria-hidden="true">→</span>
         </a>
       </div>
       <button class="whatsapp-toggle" type="button" data-whatsapp-toggle aria-label="Contactar por WhatsApp" aria-expanded="false" aria-controls="opciones-whatsapp">

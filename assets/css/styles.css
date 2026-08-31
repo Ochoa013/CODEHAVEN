@@ -400,6 +400,7 @@ h3 { margin-bottom: 0.7rem; font-size: 1.18rem; }
   .site-nav { display: none; position: absolute; top: 100%; right: 1.25rem; left: 1.25rem; flex-direction: column; gap: 0; padding: 0.5rem; background: var(--white); border: 1px solid var(--line); border-radius: 0.75rem; box-shadow: var(--shadow); }
   .site-nav.is-open { display: flex; }
   .site-nav a { padding: 0.7rem; }
+  .selector-nav-cta { margin-left: 0; justify-content: center; text-align: center; }
   .menu-button[aria-expanded="true"] span:first-child { transform: translateY(6px) rotate(45deg); }
   .menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .menu-button[aria-expanded="true"] span:last-child { transform: translateY(-6px) rotate(-45deg); }
@@ -430,6 +431,31 @@ h3 { margin-bottom: 0.7rem; font-size: 1.18rem; }
 /* ==========================================================================
    DISEÑO EJECUTIVO FORMAL: PERFIL PROFESIONAL, FOTO SOBRIA Y WHATSAPP ELEGANTE
    ========================================================================== */
+
+/* Navegación directa en el índice (Asesoría Legal · Desarrollo de Sistemas) */
+.selector-nav { align-items: center; }
+.selector-nav a { padding: 0.5rem 0.85rem; border-radius: 0.5rem; font-size: 0.9rem; }
+.selector-nav a:hover, .selector-nav a:focus-visible { color: var(--blue); background: #eef4fb; }
+.selector-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.45rem;
+  padding: 0.5rem 1.1rem;
+  color: #0f172a !important;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.selector-nav-cta:hover, .selector-nav-cta:focus-visible {
+  color: #0f172a !important;
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
 
 /* Enlace Perfil Profesional en cabecera (Sobrio y Elegante) */
 .profile-header-link {
