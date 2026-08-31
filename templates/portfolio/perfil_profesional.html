@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Perfil Profesional | Esteban Alejandro Ochoa — Sistemas & Derecho{% endblock %}
+{% block description %}Perfil profesional de Esteban Alejandro Ochoa: Ingeniería de Sistemas (UTC) y Derecho (UTPL). Desarrollo de software y servicios legales con seguimiento constante de los casos.{% endblock %}
+
+{% block content %}
+<section class="profile-hero" aria-labelledby="titulo-principal">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7 profile-hero-copy">
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.8rem;">
+          <span class="university-badge badge-utc" style="color:#0369a1; background:#f0f9ff; padding:0.3rem 0.75rem; border-radius:0.35rem; font-weight:700;">UTC · Ingeniería en Sistemas</span>
+          <span class="university-badge badge-utpl" style="color:#92400e; background:#fffbeb; padding:0.3rem 0.75rem; border-radius:0.35rem; font-weight:700;">UTPL · Derecho</span>
+        </div>
+        <h1 id="titulo-principal">Criterio legal y sólida arquitectura de software para <em>soluciones integrales.</em></h1>
+        <p class="lead">Articulo el pensamiento algorítmico y la lógica informática con la fundamentación normativa del Derecho para resolver problemas complejos con estructura, precisión, confidencialidad y seguimiento constante de los casos.</p>
+        <div class="button-row" style="margin-top:1.5rem;">
+          <a class="site-btn" href="{% url 'desarrollo_web' %}">Soluciones Digitales <i class="fa fa-long-arrow-right"></i></a>
+          <a class="site-btn site-btn-outline" href="{% url 'asesoria_legal' %}">Asesoría Legal <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <aside class="profile-portrait-card" style="background:#fff; padding:1.5rem; border-radius:12px; border:1px solid #cbd5e1; box-shadow:0 10px 25px rgba(0,0,0,0.08); text-align:center;">
+          <div style="width:170px; height:170px; border-radius:50%; overflow:hidden; margin:0 auto 1.2rem; border:3px solid #0f172a;">
+            <img src="{% static 'img/foto-perfil.png' %}" alt="Esteban Alejandro Ochoa" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <h3>Esteban Alejandro Ochoa</h3>
+          <p style="color:#0f172a; font-weight:700; margin-bottom:0.5rem;">Perfil Técnico & Jurídico</p>
+          <p style="font-size:0.88rem; color:#475569;">Revisión directa por Esteban Alejandro Ochoa con atención constante y transparente.</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-section spad" id="formacion">
+  <div class="container">
+    <header class="section-heading text-center">
+      <div class="section-kicker">Formación Universitaria</div>
+      <h2>Formación Multidisciplinaria</h2>
+    </header>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div style="background:#0f172a; color:#fff; padding:2rem; border-radius:12px; height:100%;">
+          <span style="font-size:0.8rem; font-weight:700; opacity:0.8;">01 / INGENIERÍA</span>
+          <h3 style="color:#fff; margin:0.8rem 0;">UNIVERSIDAD TÉCNICA DE COTOPAXI (UTC)</h3>
+          <p style="color:#cbd5e1;">Formación orientada al análisis, arquitectura de sistemas, desarrollo de software, diseño de bases de datos relacionales y seguridad de la información.</p>
+          <span style="font-weight:700; font-size:0.85rem; color:#38bdf8;">UTC · SISTEMAS</span>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div style="background:#1e293b; color:#fff; padding:2rem; border-radius:12px; height:100%;">
+          <span style="font-size:0.8rem; font-weight:700; opacity:0.8;">02 / DERECHO</span>
+          <h3 style="color:#fff; margin:0.8rem 0;">UNIVERSIDAD TÉCNICA PARTICULAR DE LOJA (UTPL)</h3>
+          <p style="color:#cbd5e1;">Formación jurídica orientada al patrocinio responsable, fundamentación normativa, garantías constitucionales, derecho penal, laboral y seguimiento constante de los casos.</p>
+          <span style="font-weight:700; font-size:0.85rem; color:#fde68a;">UTPL · DERECHO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="technology-section spad" id="tecnologia">
+  <div class="container">
+    <header class="section-heading text-center">
+      <div class="section-kicker">Ingeniería de Sistemas — UTC</div>
+      <h2>Herramientas y Lenguajes de Desarrollo</h2>
+    </header>
+    <div class="tech-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:1rem;">
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>Python</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>Django</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>ASP.NET Core</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>VS Code</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>Java</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>C#</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>C++</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>PostgreSQL</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>SQL Server</strong></div>
+      <div class="tech-item" style="background:#0f172a; color:#fff; padding:0.85rem; border-radius:8px; text-align:center;"><strong>MySQL</strong></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

@@ -1,63 +1,43 @@
-# Servicios profesionales — Desarrollo de software y asesoría legal
+# Sitio profesional de Esteban Ochoa
 
-Sitio profesional construido con Django y adaptado sobre los recursos visuales de la plantilla existente. La portada permite elegir entre dos áreas: desarrollo de software bajo la identidad CODEHAVEN y asesoría legal.
+Sitio web estático, listo para publicarse en **GitHub Pages**. No requiere Django, base de datos, instalación de paquetes ni servidor: basta con abrir `index.html` o subir el contenido del repositorio a GitHub.
 
-## Páginas principales
+## Páginas incluidas
 
-- `/`: portada para elegir el servicio.
-- `/desarrollo-web/`: página de desarrollo de software y contacto directo por WhatsApp.
-- `/asesoria-legal/`: página informativa de asesoría legal y contacto por WhatsApp.
+- `index.html`: portada para elegir el área de atención.
+- `desarrollo-web.html`: servicios de desarrollo de software y soluciones digitales.
+- `asesoria-legal.html`: servicios de asesoría legal.
+- `perfil-profesional.html`: formación, herramientas tecnológicas y áreas jurídicas de Esteban Ochoa.
+- `404.html`: página de error para GitHub Pages.
 
-## Ejecución local
+Todos los enlaces internos, el menú móvil y los botones de WhatsApp funcionan de manera estática. El sitio no tiene formularios ni correo: el contacto se realiza únicamente por WhatsApp, con mensajes predeterminados según el servicio. Así funciona también en GitHub Pages, donde no hay backend.
 
-Desde esta carpeta:
+## Colocar tu foto
 
-```powershell
-python manage.py runserver
-```
+1. Copia tu foto a `assets/img/`.
+2. Nómbrala exactamente `foto-perfil.png`.
+3. Sube el archivo junto con los demás cambios.
 
-La base de datos y las migraciones iniciales ya están preparadas. Si el proyecto se copia a otra ubicación, se pueden aplicar nuevamente con:
+La foto `assets/img/foto-perfil.png` ya está colocada en la portada y en las dos páginas de servicio. Si necesitas cambiarla más adelante, reemplaza ese archivo por otra imagen PNG con el mismo nombre.
 
-```powershell
-python manage.py migrate
-```
+Si prefieres JPG o WebP, cambia `foto-perfil.png` por el nombre de tu archivo en los tres HTML: `index.html`, `desarrollo-web.html` y `asesoria-legal.html`.
 
-## Administración de solicitudes históricas
+## Publicarlo en GitHub Pages
 
-Crear el primer usuario administrador:
+1. Crea un repositorio en GitHub y sube el contenido de esta carpeta.
+2. En el repositorio, abre **Settings → Pages**.
+3. En **Build and deployment**, selecciona **Deploy from a branch**.
+4. Elige la rama `main` (o `master`) y la carpeta `/ (root)`.
+5. Guarda los cambios y espera a que GitHub muestre la dirección pública del sitio.
 
-```powershell
-python manage.py createsuperuser
-```
+El archivo `.nojekyll` está incluido para que GitHub Pages publique los recursos estáticos tal como están.
 
-Después, ingresar en `http://127.0.0.1:8000/admin/` para consultar las solicitudes registradas antes de retirar el formulario público.
+## Personalizaciones rápidas
 
-## Comprobaciones
+- El número de WhatsApp actual es `+593 96 904 8598`. Para cambiarlo, busca `593969048598` en los archivos HTML y en `assets/js/main.js`.
+- Los textos de los servicios están directamente en los tres archivos HTML.
+- Los estilos están centralizados en `assets/css/styles.css`.
 
-```powershell
-python manage.py check
-python manage.py test
-```
+## Vista local
 
-## Configuración de producción
-
-Antes de publicar la aplicación, definir estas variables del sistema:
-
-- `DJANGO_DEBUG=False`
-- `DJANGO_SECRET_KEY` con una clave privada larga y aleatoria
-- `DJANGO_ALLOWED_HOSTS` con los dominios autorizados separados por comas
-- `DJANGO_CSRF_TRUSTED_ORIGINS` con los orígenes HTTPS autorizados, separados por comas
-
-La configuración de producción activa redirección HTTPS, cookies seguras, HSTS y cabeceras de protección. El archivo local `.django-secret-key` se genera únicamente para desarrollo y está excluido del control de versiones.
-
-## Contacto
-
-Desarrollo de software y asesoría legal utilizan WhatsApp como único canal público de contacto. Cada página abre una conversación con un mensaje inicial adaptado al servicio seleccionado.
-
-## Estructura principal
-
-- `perfil_profesional/`: configuración y rutas del proyecto.
-- `contacto/`: vistas, administración, datos históricos y pruebas.
-- `templates/`: Home y página 404.
-- `static/`: recursos originales de la plantilla y la adaptación visual.
-- `db.sqlite3`: base de datos local con la estructura ya migrada.
+Haz doble clic en `index.html` para abrir el sitio en tu navegador. No necesitas ejecutar `python manage.py runserver`.

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Espacio para foto de perfil</title>
+  <desc id="desc">Marcador de posición con las iniciales EO</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#163e73"/>
+      <stop offset="1" stop-color="#1e79ca"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#background)"/>
+  <circle cx="300" cy="250" r="102" fill="#cce6ff" opacity=".95"/>
+  <path fill="#cce6ff" d="M102 555c18-119 98-190 198-190s180 71 198 190z" opacity=".95"/>
+  <text x="300" y="105" fill="#fff" font-family="Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="8" text-anchor="middle">TU FOTO</text>
+  <text x="300" y="500" fill="#173d70" font-family="Arial, sans-serif" font-size="74" font-weight="700" text-anchor="middle">EO</text>
+</svg>

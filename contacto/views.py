@@ -26,8 +26,13 @@ def service_selector(request):
     return render(request, "portfolio/services.html")
 
 
+def perfil_profesional(request):
+    return render(request, "portfolio/perfil_profesional.html", page_context())
+
+
 def desarrollo_web(request):
     return render(request, "portfolio/home.html", page_context())
+
 
 
 def asesoria_legal(request):
