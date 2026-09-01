@@ -70,6 +70,59 @@
   });
 
   const revealElements = document.querySelectorAll(".reveal");
+
+  // Carrusel automático del hero (sin flechas)
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    const dotsContainer = carousel.querySelector("[data-carousel-dots]");
+    if (slides.length === 0) return;
+
+    let current = 0;
+    let timer = null;
+    const INTERVAL_MS = 4000;
+
+    const buildDots = () => {
+      if (!dotsContainer) return;
+      slides.forEach((_, i) => {
+        const dot = document.createElement("span");
+        if (i === 0) dot.classList.add("is-active");
+        dotsContainer.appendChild(dot);
+      });
+    };
+
+    const show = (index) => {
+      slides.forEach((slide, i) => slide.classList.toggle("is-active", i === index));
+      if (dotsContainer) {
+        dotsContainer.querySelectorAll("span").forEach((dot, i) => dot.classList.toggle("is-active", i === index));
+      }
+      current = index;
+    };
+
+    const next = () => show((current + 1) % slides.length);
+
+    const start = () => {
+      if (reduceMotion) return;
+      stop();
+      timer = setInterval(next, INTERVAL_MS);
+    };
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
+
+    buildDots();
+    show(0);
+    start();
+
+    carousel.addEventListener("mouseenter", stop);
+    carousel.addEventListener("mouseleave", start);
+    carousel.addEventListener("focusin", (e) => {
+      if (carousel.contains(e.target)) stop();
+    });
+    carousel.addEventListener("focusout", () => start());
+  });
+
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

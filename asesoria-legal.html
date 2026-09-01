@@ -21,7 +21,6 @@
       </button>
       <nav class="site-nav" id="menu-principal" data-menu aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
-        <a href="perfil-profesional.html">Perfil profesional</a>
         <a href="#servicios">Servicios Legales</a>
         <a href="#proceso">Metodología</a>
         <a href="#contacto">Contacto</a>
@@ -31,12 +30,10 @@
     <main id="contenido">
       <section class="hero hero-legal" id="inicio" aria-labelledby="titulo-principal">
         <div class="hero-content reveal">
-          <span class="university-badge badge-utpl">Derecho & Ciencias Jurídicas</span>
-          <h1 id="titulo-principal">Asesoría legal y <em>seguimiento constante de los casos.</em></h1>
+          <h1 id="titulo-principal">Asesoría legal con <em>seguimiento constante.</em></h1>
           <p class="lead">Patrocinio ético y transparente en materias Penales, Garantías Constitucionales, controversias Laborales, Tránsito, Civil y Familia. Revisión directa por Esteban Alejandro Ochoa en cada etapa del proceso.</p>
           <div class="button-row">
-            <a class="button button-primary" href="#contacto">Solicitar Orientación Legal</a>
-            <a class="button button-secondary" href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Quisiera%20solicitar%20orientaci%C3%B3n%20sobre%20un%20asunto%20legal." target="_blank" rel="noopener noreferrer">Consulta por WhatsApp <span aria-hidden="true">→</span></a>
+            <a class="button button-whatsapp hero-whatsapp" href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Quisiera%20solicitar%20orientaci%C3%B3n%20sobre%20un%20asunto%20legal." target="_blank" rel="noopener noreferrer"><img class="whatsapp-icon" src="assets/img/whatsapp-logo.svg" alt="WhatsApp" aria-hidden="true"> Consulta por WhatsApp <span aria-hidden="true">→</span></a>
           </div>
           <ul class="inline-points" aria-label="Características del servicio">
             <li>Análisis riguroso de antecedentes</li>
@@ -44,16 +41,21 @@
             <li>Absoluta reserva y confidencialidad</li>
           </ul>
         </div>
-
-        <!-- TARJETA SOBRIA SIN FOTO EN PÁGINAS DE SERVICIO -->
-        <aside class="hero-profile-card legal-profile-card reveal" aria-label="Compromiso Profesional">
-          <p class="eyebrow">Compromiso Legal</p>
-          <h2>Seguimiento Constante</h2>
-          <p>Revisión directa por Esteban Alejandro Ochoa. Patrocinio comprometido con el debido proceso, la reserva profesional y la actualización permanente del estado de su expediente.</p>
-        </aside>
+        <div class="hero-carousel reveal" data-carousel>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="assets/img/legal/carousel-1.jpg" alt="Balanza de la justicia" loading="lazy"></div>
+              <div class="carousel-slide"><img src="assets/img/legal/carousel-2.jpg" alt="Martillo del juez" loading="lazy"></div>
+              <div class="carousel-slide"><img src="assets/img/legal/carousel-3.jpg" alt="Tribunal de justicia" loading="lazy"></div>
+              <div class="carousel-slide"><img src="assets/img/legal/carousel-4.jpg" alt="Libros de derecho" loading="lazy"></div>
+              <div class="carousel-slide"><img src="assets/img/legal/carousel-5.jpg" alt="Abogado en su despacho" loading="lazy"></div>
+            </div>
+          </div>
+          <div class="carousel-dots" data-carousel-dots aria-hidden="true"></div>
+        </div>
       </section>
 
-      <section class="section" id="servicios" aria-labelledby="titulo-servicios">
+      <section class="section legal-services-section" id="servicios" aria-labelledby="titulo-servicios">
         <div class="section-intro reveal">
           <p class="eyebrow">Áreas de Práctica Jurídica</p>
           <h2 id="titulo-servicios">Patrocinio y Asesoría Especializada</h2>
@@ -61,31 +63,37 @@
         </div>
         <div class="service-grid legal-service-grid">
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/legal/svc-penal.jpg" alt="Servicios penales" loading="lazy"></div>
             <span>01 / PENAL</span>
             <h3>Servicios Penales</h3>
             <p>Orientación inicial y representación jurídica en investigaciones previas, instrucciones fiscales y procesos penales. Garantía irrestricta del debido proceso y presunción de inocencia.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/legal/svc-constitucional.jpg" alt="Servicios constitucionales" loading="lazy"></div>
             <span>02 / CONSTITUCIONAL</span>
             <h3>Servicios Constitucionales</h3>
             <p>Acción de Protección, Hábeas Corpus y Hábeas Data. Tutela efectiva ante la vulneración de derechos fundamentales por autoridades públicas o particulares.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/legal/svc-laboral.jpg" alt="Servicios laborales" loading="lazy"></div>
             <span>03 / LABORAL</span>
             <h3>Servicios Laborales</h3>
             <p>Asesoría en contratos de trabajo, desahucios, despidos intempestivos, vistos buenos, actas de finiquito y representación en audiencias laborales.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/legal/svc-transito.jpg" alt="Impugnaciones y tránsito" loading="lazy"></div>
             <span>04 / TRÁNSITO</span>
             <h3>Impugnaciones y Tránsito</h3>
             <p>Patrocinio y seguimiento en citaciones de tránsito, accidentes, procedimientos contravencionales y trámites de impugnación.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/legal/svc-civil.jpg" alt="Procesos civiles" loading="lazy"></div>
             <span>05 / CIVIL</span>
             <h3>Procesos Civiles</h3>
             <p>Elaboración de contratos, exigibilidad de obligaciones, cobro de deudas, resolución de desacuerdos y asesoría civil preventiva.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/legal/svc-familia.jpg" alt="Familia y alimentos" loading="lazy"></div>
             <span>06 / FAMILIA</span>
             <h3>Familia y Alimentos</h3>
             <p>Orientación jurídica responsable en fijación, aumento o rebaja de pensiones alimenticias, régimen de visitas y protección familiar.</p>
@@ -121,7 +129,7 @@
           <span class="contact-step">Consulta Confidencial</span>
           <h3>Consulta por WhatsApp</h3>
           <p>Respuesta rápida para coordinar la revisión inicial de sus documentos y establecer los pasos a seguir.</p>
-          <a class="button button-whatsapp" href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Quisiera%20solicitar%20orientaci%C3%B3n%20sobre%20un%20asunto%20legal." target="_blank" rel="noopener noreferrer">Solicitar Orientación Legal <span aria-hidden="true">→</span></a>
+          <a class="button button-whatsapp" href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Quisiera%20solicitar%20orientaci%C3%B3n%20sobre%20un%20asunto%20legal." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <span aria-hidden="true">→</span></a>
           <small>Garantía de estricta reserva profesional.</small>
         </aside>
       </section>

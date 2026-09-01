@@ -21,7 +21,6 @@
       </button>
       <nav class="site-nav" id="menu-principal" data-menu aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
-        <a href="perfil-profesional.html">Perfil profesional</a>
         <a href="#servicios">Servicios Digitales</a>
         <a href="#proceso">Metodología</a>
         <a href="#contacto">Contacto</a>
@@ -31,12 +30,10 @@
     <main id="contenido">
       <section class="hero hero-tech" id="inicio" aria-labelledby="titulo-principal">
         <div class="hero-content reveal">
-          <span class="university-badge badge-utc">Ingeniería en Sistemas</span>
-          <h1 id="titulo-principal">Desarrollo de software y <em>soluciones adaptables a tu proyecto.</em></h1>
+          <h1 id="titulo-principal">Desarrollo de software <em>adaptable a tu proyecto.</em></h1>
           <p class="lead">Nos adaptamos a las herramientas, plataformas, lenguajes o bases de datos que desees implementar: Python, Django, ASP.NET Core, Java, C#, C++, PostgreSQL, SQL Server, MySQL y más.</p>
           <div class="button-row">
-            <a class="button button-primary" href="#contacto">Consultar Proyecto</a>
-            <a class="button button-secondary" href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Me%20interesa%20una%20soluci%C3%B3n%20digital%20para%20mi%20proyecto." target="_blank" rel="noopener noreferrer">Contacto por WhatsApp <span aria-hidden="true">→</span></a>
+            <a class="button button-whatsapp hero-whatsapp" href="https://wa.me/593969048598?text=Hola%2C%20Esteban.%20Me%20interesa%20una%20soluci%C3%B3n%20digital%20para%20mi%20proyecto." target="_blank" rel="noopener noreferrer"><img class="whatsapp-icon" src="assets/img/whatsapp-logo.svg" alt="WhatsApp" aria-hidden="true"> Contacto por WhatsApp <span aria-hidden="true">→</span></a>
           </div>
           <ul class="inline-points" aria-label="Características del servicio">
             <li>Adaptación a las herramientas del cliente</li>
@@ -44,16 +41,21 @@
             <li>Bases de datos relacionales sólidas</li>
           </ul>
         </div>
-
-        <!-- TARJETA SOBRIA SIN FOTO EN PÁGINAS DE SERVICIO -->
-        <aside class="hero-profile-card reveal" aria-label="Adaptabilidad Tecnológica">
-          <p class="eyebrow">Ingeniería de Sistemas</p>
-          <h2>Flexibilidad Técnica</h2>
-          <p>Nos integramos a la pila tecnológica, infraestructura o arquitectura existente que tu empresa u operación prefiera utilizar.</p>
-        </aside>
+        <div class="hero-carousel reveal" data-carousel>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <div class="carousel-slide"><img src="assets/img/tech/carousel-1.jpg" alt="Código en pantalla" loading="lazy"></div>
+              <div class="carousel-slide"><img src="assets/img/tech/carousel-2.jpg" alt="Espacio de trabajo de desarrollo" loading="lazy"></div>
+              <div class="carousel-slide"><img src="assets/img/tech/carousel-3.jpg" alt="Centro de servidores" loading="lazy"></div>
+              <div class="carousel-slide"><img src="assets/img/tech/carousel-4.jpg" alt="Base de datos" loading="lazy"></div>
+              <div class="carousel-slide"><img src="assets/img/tech/carousel-5.jpg" alt="Equipo de desarrollo colaborando" loading="lazy"></div>
+            </div>
+          </div>
+          <div class="carousel-dots" data-carousel-dots aria-hidden="true"></div>
+        </div>
       </section>
 
-      <section class="section" id="servicios" aria-labelledby="titulo-servicios">
+      <section class="section tech-services-section" id="servicios" aria-labelledby="titulo-servicios">
         <div class="section-intro reveal">
           <p class="eyebrow">Servicios de Desarrollo</p>
           <h2 id="titulo-servicios">Soluciones Tecnológicas a Medida</h2>
@@ -61,31 +63,37 @@
         </div>
         <div class="service-grid">
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/tech/svc-django.jpg" alt="Desarrollo web en Django" loading="lazy"></div>
             <span>01 / PYTHON & DJANGO</span>
             <h3>Desarrollo Web en Django</h3>
             <p>Plataformas administrables y seguras en Python y Django, idóneas para portales corporativos y sistemas de gestión de contenido y datos.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/tech/svc-dotnet.jpg" alt="Sistemas en ASP.NET Core" loading="lazy"></div>
             <span>02 / .NET & C#</span>
             <h3>Sistemas en ASP.NET Core</h3>
             <p>Arquitectura informática robusta construida en C# y .NET para aplicaciones empresariales de alta disponibilidad.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/tech/svc-db.jpg" alt="Bases de datos" loading="lazy"></div>
             <span>03 / BASES DE DATOS</span>
             <h3>PostgreSQL, SQL Server & MySQL</h3>
             <p>Modelado, normalización y optimización de bases de datos relacionales asegurando integridad de la información y velocidad de respuesta.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/tech/svc-java.jpg" alt="Software y algoritmos" loading="lazy"></div>
             <span>04 / JAVA & C++</span>
             <h3>Software y Algoritmos</h3>
             <p>Programación orientada a objetos en Java y C++ para componentes de software, herramientas de escritorio y procesamiento específico.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/tech/svc-inventario.jpg" alt="Sistemas de inventario y control" loading="lazy"></div>
             <span>05 / CONTROL Y GESTIÓN</span>
             <h3>Sistemas de Inventario y Control</h3>
             <p>Desarrollo de módulos para control de existencias, ventas, clientes, registros operativos e informes administrativos.</p>
           </article>
           <article class="service-card reveal">
+            <div class="service-thumb"><img src="assets/img/tech/svc-api.jpg" alt="APIs REST y herramientas a medida" loading="lazy"></div>
             <span>06 / INTEGRACIONES</span>
             <h3>APIs REST y Herramientas a Medida</h3>
             <p>Integración de servicios web APIs y adaptación a cualquier entorno de desarrollo o infraestructura de tu preferencia.</p>
